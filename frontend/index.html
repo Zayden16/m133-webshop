@@ -9,40 +9,64 @@
 </head>
 
 <body>
-    <nav>
-        <ul class="nav-bar fadein">
-            <svg width="75" height="75" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="50" fill="#667EEA"/>
-                <circle cx="50" cy="50" r="50" fill="url(#paint0_linear)"/>
-                <g filter="url(#filter0_d)">
-                <path d="M31.25 68.75H68.75" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M56.25 41.6667C56.25 43.3243 56.9085 44.914 58.0806 46.0861C59.2527 47.2582 60.8424 47.9167 62.5 47.9167C64.1576 47.9167 65.7473 47.2582 66.9194 46.0861C68.0915 44.914 68.75 43.3243 68.75 41.6667V39.5833H31.25L35.4167 31.25H64.5833L68.75 39.5833M31.25 39.5833V41.6667C31.25 43.3243 31.9085 44.914 33.0806 46.0861C34.2527 47.2582 35.8424 47.9167 37.5 47.9167C39.1576 47.9167 40.7473 47.2582 41.9194 46.0861C43.0915 44.914 43.75 43.3243 43.75 41.6667V39.5833H31.25ZM43.75 41.6667C43.75 43.3243 44.4085 44.914 45.5806 46.0861C46.7527 47.2582 48.3424 47.9167 50 47.9167C51.6576 47.9167 53.2473 47.2582 54.4194 46.0861C55.5915 44.914 56.25 43.3243 56.25 41.6667V39.5833L43.75 41.6667Z" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M35.4167 68.75V47.6042" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M64.5833 68.75V47.6042" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M43.75 68.75V60.4167C43.75 59.3116 44.189 58.2518 44.9704 57.4704C45.7518 56.689 46.8116 56.25 47.9167 56.25H52.0833C53.1884 56.25 54.2482 56.689 55.0296 57.4704C55.811 58.2518 56.25 59.3116 56.25 60.4167V68.75" stroke="white" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
-                </g>
+    <nav class="nav-bar fadein">
+        <ul>
+            <svg class="nav-icon" width="60" height="75" viewBox="0 0 300 300" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="150" cy="150" r="150" fill="#D00F0F" />
+                <circle cx="150" cy="150" r="150" fill="url(#paint0_linear)" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M170.209 150.903C170.143 161.815 161.239 170.605 150.327 170.539C139.415 170.473 130.625 161.576 130.69 150.664C130.756 139.745 139.653 130.955 150.566 131.021C161.478 131.087 170.274 139.984 170.209 150.903Z"
+                    stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                    d="M150.756 95.1454C121.708 94.9903 96.9174 115.656 83.4742 146.43C82.3761 148.944 82.3589 151.798 83.4265 154.325C96.4971 185.259 121.036 206.223 150.084 206.418L150.756 95.1454ZM217.472 147.239C204.402 116.305 179.863 95.3414 150.815 95.1458L150.143 206.419C179.191 206.574 203.982 185.908 217.425 155.134C218.523 152.62 218.54 149.766 217.472 147.239Z"
+                    stroke="white" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" />
                 <defs>
-                <filter id="filter0_d" x="25.875" y="29.875" width="48.2503" height="48.25" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                <feOffset dy="4"/>
-                <feGaussianBlur stdDeviation="2"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-                </filter>
-                <linearGradient id="paint0_linear" x1="50" y1="0" x2="50" y2="100" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#764BA2"/>
-                <stop offset="1" stop-color="white" stop-opacity="0"/>
-                </linearGradient>
+                    <linearGradient id="paint0_linear" x1="150" y1="0" x2="150" y2="300" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#B300FF" />
+                        <stop offset="1" stop-color="white" stop-opacity="0" />
+                    </linearGradient>
                 </defs>
-                </svg>
-                
+            </svg>
+
+
             <li><a class="nav-link" href="#link1">link1</a></li>
             <li><a class="nav-link" href="#link2">link2</a></li>
             <li><a class="nav-link" href="#link3">link3</a></li>
         </ul>
-    </nav>  
+    </nav>
+    <section id="hero">
+        <div id="hero-text">
+            <h1>The new XPhone Orp</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+            <button>Buy now</button>
+        </div>
+        <img id="xphone-orp-hero" src="./media/XPhone.png" alt="The new XPhone Orp">
+    </section>
+    <section class="card-grid">
+        <article class="card">
+            <img class="card-thumb" src="">
+            <h2>M133 Canban Board</h2>
+            <p>This project is part of Module 113 at the BBZW Sursee. We were tasked to build a simple Canban
+                Board
+                using what we learned in the course.</p>
+            <div class="card-icons">
+                <div class="card-icon">
+                    <a class="repo-link" target="_blank" href="https://github.com/Zayden16/m133-canban-board"><i
+                            class='fab fa-github'></i>
+                    </a>
+                </div>
+                <div class="card-icon">
+                    <a class="repo-link" target="_blank" href="https://canban.zayden.ch/"><i class='fas fa-eye'></i>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </section>
 </body>
 
 </html>

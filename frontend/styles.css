@@ -3,7 +3,9 @@
 :root {
     --dark-grey: #171717;
     --blue: #0058ee;
-    --purple: 
+    --purple: #7b1fa2;
+    --pruple-light: #ae52d4;
+    --pruple-dark: #4a0072;
 }
 
 * {
@@ -16,7 +18,10 @@ body {
     margin: auto;
     color: white;
     height: 100%;
+    width: 100%;
 }
+
+/* ----------------------------------------------------------- Navbar ----------------------------------------------------------- */
 
 .nav-bar {
     margin: 0;
@@ -24,24 +29,114 @@ body {
     height: auto;
     width: 100%;
     position: relative;
-    display: inline-flex;
+    display: flex;
     background-color: var(--dark-grey)
 }
 
-a.nav-link {
-    font-size: 16pt;
-    margin: 2px;
-    color: white;
-    padding: 0 10px;
+.nav-bar ul{
+    margin: 0;
+    display: flex;
+}
+
+#nav-icon{
+    margin: 10px;
+    transition: 1s;
+}
+
+#nav-icon:hover{
+    transform: scale(1.5);
+}
+
+.nav-bar ul{
+    width: 100%;
+}
+
+.nav-bar li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    transition: 0.5s;
+}
+
+.nav-bar li a{
     text-decoration: none;
-    cursor: pointer;
+    color: white;
     text-transform: uppercase;
 }
 
-a.nav-link:hover {
-    transition: 0.5s cubic-bezier(.25, .8, .25, 1);
-    background-color: var(--blue);
+.nav-bar li:hover{
+    background-color: var(--pruple-light);
+    transform: scale(1.1);
 }
+
+/* --------------------------------------------------- Hero --------------------------------------------------------------------- */
+
+#hero{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero h1{
+    color: black;
+    font-size: 5em;
+}
+
+#hero-text{
+    width: 50%;
+    color: var(--dark-grey);
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
+}
+
+#xphone-orp-hero{
+    margin-left: 20ch;
+    height: 70vh;
+    transform: rotate(20deg);
+}
+
+#hero button{
+    width: 200px;
+    height: 50px;
+    border: none;
+    text-transform: uppercase;
+    color: white;
+    border-radius: 32px;
+    background: linear-gradient(90deg, rgba(208,15,15,1) 0%, rgba(179,0,255,1) 100%);
+    transition: 0.5s;
+    font-weight: 500;
+}
+
+#hero button:hover{
+    transform: scale(1.1);
+ 
+}
+/* --------------------------------------------------- Card Component ----------------------------------------------------------- */
+
+.card {
+    margin: 2.5%;
+    padding: 2.5%;
+    color: #171717;
+    border-radius: 16px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20em;
+    box-shadow: -15px 15px 10px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.5s cubic-bezier(.25,.8,.25,1);
+}
+
+.card:hover {
+    box-shadow: -15px 15px 28px #171717, 0 10px 10px #171717;
+    transform: translateY(-25px);;
+}
+
+/* --------------------------------------------------- Animations ----------------------------------------------------------- */
 
 .fadein {
     animation: fadeIn;
