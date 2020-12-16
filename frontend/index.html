@@ -11,16 +11,16 @@
 <body>
     <nav class="nav-bar fadein">
         <ul>
-            <svg class="nav-icon" width="60" height="75" viewBox="0 0 300 300" fill="none"
+            <svg class="nav-icon" width="60" height="75 " viewBox="0 0 300 300" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <circle cx="150" cy="150" r="150" fill="#D00F0F" />
                 <circle cx="150" cy="150" r="150" fill="url(#paint0_linear)" />
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M170.209 150.903C170.143 161.815 161.239 170.605 150.327 170.539C139.415 170.473 130.625 161.576 130.69 150.664C130.756 139.745 139.653 130.955 150.566 131.021C161.478 131.087 170.274 139.984 170.209 150.903Z"
-                    stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
                 <path
-                    d="M150.756 95.1454C121.708 94.9903 96.9174 115.656 83.4742 146.43C82.3761 148.944 82.3589 151.798 83.4265 154.325C96.4971 185.259 121.036 206.223 150.084 206.418L150.756 95.1454ZM217.472 147.239C204.402 116.305 179.863 95.3414 150.815 95.1458L150.143 206.419C179.191 206.574 203.982 185.908 217.425 155.134C218.523 152.62 218.54 149.766 217.472 147.239Z"
-                    stroke="white" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" />
+                    d="M232.212 144.513C205.459 113.275 177.117 97 150.099 97C123.082 97 94.7395 113.275 67.9866 144.513C65.3378 147.4 65.3378 151.862 67.9866 154.75C94.7395 185.725 123.082 202 150.099 202C177.117 202 205.459 185.725 232.212 154.488C234.596 151.6 234.596 147.4 232.212 144.513ZM150.099 191.5C127.055 191.5 101.361 176.537 77.5223 149.5C101.361 122.462 127.055 107.5 150.099 107.5C173.144 107.5 198.837 122.462 222.676 149.5C198.837 176.537 173.144 191.5 150.099 191.5Z"
+                    fill="white" />
+                <path
+                    d="M150.5 118C133.175 118 119 132.175 119 149.5C119 166.825 133.175 181 150.5 181C167.825 181 182 166.825 182 149.5C182 132.175 167.825 118 150.5 118ZM150.5 170.5C138.95 170.5 129.5 161.05 129.5 149.5C129.5 137.95 138.95 128.5 150.5 128.5C162.05 128.5 171.5 137.95 171.5 149.5C171.5 161.05 162.05 170.5 150.5 170.5Z"
+                    fill="white" />
                 <defs>
                     <linearGradient id="paint0_linear" x1="150" y1="0" x2="150" y2="300" gradientUnits="userSpaceOnUse">
                         <stop stop-color="#B300FF" />
@@ -28,14 +28,12 @@
                     </linearGradient>
                 </defs>
             </svg>
-
-
-            <li><a class="nav-link" href="#link1">link1</a></li>
+            <li><a class="nav-link" href="#xphone-info">XPhone Pro</a></li>
             <li><a class="nav-link" href="#link2">link2</a></li>
             <li><a class="nav-link" href="#link3">link3</a></li>
         </ul>
     </nav>
-    <section id="hero">
+    <section id="hero" class="fadein">
         <div id="hero-text">
             <h1>The new XPhone Orp</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -43,11 +41,68 @@
                 ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
                 deserunt mollit anim id est laborum.</p>
-            <button>Buy now</button>
+            <div>
+                <button class="button"><a>Buy Now</a></button>
+                <button class="button"><a href="#xphone-info">See more</a></button>
+            </div>
         </div>
         <img id="xphone-orp-hero" src="./media/XPhone.png" alt="The new XPhone Orp">
     </section>
+    <section id="xphone-info">
+        <div id="xphone-container">
+            <img id="xphone-orp-pic" src="./media/XPhone.png" alt="The new XPhone Orp">
+            <div id="xphone-info-textarea">
+                <h1>The brand new XPhone Orp</h1>
+                <h2>Exactly like the old one but this time with more clout.</h2>
+                <h2>Specsheet</h2>
+                <h3>Kryptonite&#8482; Mk. XII Comet Hexaquadrillion Core Processor</h3>
+                <h3>Infinity&#8482; Mk. V Apollo GPU with 128 CUDA Cores</h3>
+                <h3>69.42 MP Camera Sensor</h3>
+                <h3>128/256/512GB Storage</h3>
+                <h3>16/32/64GB RAM</h3>
+                <h3>Just buy it already!</h3>
+                <h6>You know you want to!</h6>
+            </div>
+        </div>
+    </section>
+
     <section class="card-grid">
+        <article class="card">
+            <img class="card-thumb" src="">
+            <h2>M133 Canban Board</h2>
+            <p>This project is part of Module 113 at the BBZW Sursee. We were tasked to build a simple Canban
+                Board
+                using what we learned in the course.</p>
+            <div class="card-icons">
+                <div class="card-icon">
+                    <a class="repo-link" target="_blank" href="https://github.com/Zayden16/m133-canban-board"><i
+                            class='fab fa-github'></i>
+                    </a>
+                </div>
+                <div class="card-icon">
+                    <a class="repo-link" target="_blank" href="https://canban.zayden.ch/"><i class='fas fa-eye'></i>
+                    </a>
+                </div>
+            </div>
+        </article>
+        <article class="card">
+            <img class="card-thumb" src="">
+            <h2>M133 Canban Board</h2>
+            <p>This project is part of Module 113 at the BBZW Sursee. We were tasked to build a simple Canban
+                Board
+                using what we learned in the course.</p>
+            <div class="card-icons">
+                <div class="card-icon">
+                    <a class="repo-link" target="_blank" href="https://github.com/Zayden16/m133-canban-board"><i
+                            class='fab fa-github'></i>
+                    </a>
+                </div>
+                <div class="card-icon">
+                    <a class="repo-link" target="_blank" href="https://canban.zayden.ch/"><i class='fas fa-eye'></i>
+                    </a>
+                </div>
+            </div>
+        </article>
         <article class="card">
             <img class="card-thumb" src="">
             <h2>M133 Canban Board</h2>

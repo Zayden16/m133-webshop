@@ -21,6 +21,33 @@ body {
     width: 100%;
 }
 
+/* ----------------------------------------------------------- Universal -------------------------------------------------------- */
+
+section{
+    height: auto;
+    display: flex;
+    background: var(--dark-grey);
+}
+
+.button{
+    width: 10vw;
+    height: 50px;
+    border: none;
+    text-transform: uppercase;
+    color: white;
+    border-radius: 32px;
+    background: linear-gradient(90deg, rgba(208,15,15,1) 0%, rgba(179,0,255,1) 100%);
+    transition: 0.5s;
+    font-weight: 500;
+}
+.button a{
+    text-decoration: none;
+    color: white;
+}
+.button:hover{
+    transform: scale(1.1);
+}
+
 /* ----------------------------------------------------------- Navbar ----------------------------------------------------------- */
 
 .nav-bar {
@@ -55,7 +82,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 75px;
+    width: 6vw;
     transition: 0.5s;
 }
 
@@ -66,13 +93,14 @@ body {
 }
 
 .nav-bar li:hover{
-    background-color: var(--pruple-light);
+    background: linear-gradient(90deg, rgba(208,15,15,1) 0%, rgba(179,0,255,1) 100%);
     transform: scale(1.1);
 }
 
 /* --------------------------------------------------- Hero --------------------------------------------------------------------- */
 
 #hero{
+    background: white;
     height: 90%;
     width: 100%;
     display: flex;
@@ -98,23 +126,34 @@ body {
     height: 70vh;
     transform: rotate(20deg);
 }
+/* --------------------------------------------------- XPhone Info -------------------------------------------------------------- */
 
-#hero button{
-    width: 200px;
-    height: 50px;
-    border: none;
-    text-transform: uppercase;
-    color: white;
-    border-radius: 32px;
-    background: linear-gradient(90deg, rgba(208,15,15,1) 0%, rgba(179,0,255,1) 100%);
-    transition: 0.5s;
-    font-weight: 500;
+#xphone-info{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
-#hero button:hover{
-    transform: scale(1.1);
- 
+#xphone-container{
+    display: flex;
+    margin: 5%;
 }
+
+#xphone-info-textarea{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10vh;
+}
+
+#xphone-info h1{
+    font-size: 6vh;
+}
+
+#xphone-orp-pic{
+    height: 40vw;
+    margin-left: 50px;
+}
+
 /* --------------------------------------------------- Card Component ----------------------------------------------------------- */
 
 .card {
