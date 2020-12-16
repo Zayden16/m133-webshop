@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+:root {
+    --dark-grey: #171717;
+    --blue: #0058ee;
+    --purple: 
+}
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    margin: auto;
+    color: white;
+    height: 100%;
+}
+
+.nav-bar {
+    margin: 0;
+    list-style: none;
+    height: auto;
+    width: 100%;
+    position: relative;
+    display: inline-flex;
+    background-color: var(--dark-grey)
+}
+
+a.nav-link {
+    font-size: 16pt;
+    margin: 2px;
+    color: white;
+    padding: 0 10px;
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+a.nav-link:hover {
+    transition: 0.5s cubic-bezier(.25, .8, .25, 1);
+    background-color: var(--blue);
+}
+
+.fadein {
+    animation: fadeIn;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes blurIn {
+    0% {
+        filter: blur(10px);
+    }
+
+    100% {
+        filter: blur(0px);
+    }
+}
