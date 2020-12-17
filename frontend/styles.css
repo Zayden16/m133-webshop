@@ -28,23 +28,35 @@ section{
     display: flex;
     background: var(--dark-grey);
 }
-
+/*
 .button{
     width: 10vw;
     height: 50px;
-    border: none;
     text-transform: uppercase;
     color: white;
-    border-radius: 32px;
-    background: linear-gradient(90deg, rgba(208,15,15,1) 0%, rgba(179,0,255,1) 100%);
+    border-radius: 24px;
     transition: 0.5s;
-    font-weight: 500;
-}
-
-.button a{
+    padding: 15px 32px;
     text-decoration: none;
-    color: white;
+    margin-top: 100px;
 }
+*/
+
+.button {
+    background: linear-gradient(90deg, rgba(208,15,15,1) 0%, rgba(179,0,255,1) 100%);
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px 0px;
+    cursor: pointer;
+    border-radius: 24px;
+    transition: 0.5s;
+  }
 
 .button:hover{
     transform: scale(1.1);
@@ -132,9 +144,11 @@ section{
 /* --------------------------------------------------- XPhone Info -------------------------------------------------------------- */
 
 #xphone-info{
+    color: var(--dark-grey);
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
 }
 
 #xphone-container{
@@ -146,6 +160,7 @@ section{
     display: flex;
     flex-direction: column;
     margin-left: 10vh;
+    
 }
 
 #xphone-info h1{
@@ -158,6 +173,11 @@ section{
 }
 
 /* --------------------------------------------------- Card Component ----------------------------------------------------------- */
+.card-grid{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
 .card {
     margin: 2.5%;
@@ -174,7 +194,7 @@ section{
 }
 
 .card:hover {
-    box-shadow: -15px 15px 28px #171717, 0 10px 10px #171717;
+    box-shadow: -15px 15px 28px var(--dark-grey), 0 10px 10px var(--dark-grey);
     transform: translateY(-25px);;
 }
 
