@@ -40,10 +40,12 @@ section{
     transition: 0.5s;
     font-weight: 500;
 }
+
 .button a{
     text-decoration: none;
     color: white;
 }
+
 .button:hover{
     transform: scale(1.1);
 }
@@ -126,6 +128,7 @@ section{
     height: 70vh;
     transform: rotate(20deg);
 }
+
 /* --------------------------------------------------- XPhone Info -------------------------------------------------------------- */
 
 #xphone-info{
