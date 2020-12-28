@@ -1,6 +1,7 @@
 import { Application, send } from "https://deno.land/x/oak/mod.ts"
-
+import { Article } from './models/Article.ts'
 import api from "./api.ts";
+import db from "./dbHelper.ts"
 
 const app = new Application();
 const PORT = 8000;
@@ -22,16 +23,19 @@ app.use(async (ctx, next) =>{
 
 //Router Middleware
 app.use(api.routes());
-app.use(api.allowedmethods());
+app.use(api.allowedMethods());
+
+//Db stuff
+await db.link([Article]);
 
 //Security + Static Server
 app.use(async (ctx) =>{
     const filePath = ctx.request.url.pathname;
     const fileWhitelist = [
         "/index.html",
-        "/media/*",
-        "/js/*",
-        "/stylesheets/*"
+        "/media/XPhone.png",
+        "/js/app.js",
+        "/stylesheets/styles.css"
     ];
     if (fileWhitelist.includes(filePath)){
         await send (ctx, filePath, {
