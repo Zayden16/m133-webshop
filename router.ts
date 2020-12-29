@@ -6,4 +6,8 @@ router.get("/", (ctx => {
     ctx.response.redirect("/index.html");
 }));
 
+router.get("home", (ctx => {
+    ctx.response.body=
+}))
+
 export default router;

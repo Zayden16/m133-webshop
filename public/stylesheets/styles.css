@@ -1,201 +1,72 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
-:root {
-    --dark-grey: #171717;
-    --blue: #0058ee;
-    --purple: #7b1fa2;
-    --pruple-light: #ae52d4;
-    --pruple-dark: #4a0072;
-}
-
 * {
     font-family: 'Ubuntu', sans-serif;
     scroll-behavior: smooth;
 }
 
-html,
-body {
-    margin: auto;
-    color: white;
-    height: 100%;
-    width: 100%;
-}
+/* --------------------------------------------------- Navbar ----------------------------------------------------------- */
 
-/* ----------------------------------------------------------- Universal -------------------------------------------------------- */
+/* --------------------------------------------------- Components ----------------------------------------------------------- */
 
-section{
-    height: auto;
-    display: flex;
-    background: var(--dark-grey);
-}
-/*
-.button{
-    width: 10vw;
-    height: 50px;
-    text-transform: uppercase;
-    color: white;
-    border-radius: 24px;
-    transition: 0.5s;
-    padding: 15px 32px;
-    text-decoration: none;
-    margin-top: 100px;
-}
-*/
 
-.button {
-    background: linear-gradient(90deg, rgba(208,15,15,1) 0%, rgba(179,0,255,1) 100%);
-    border: none;
-    color: white;
-    text-transform: uppercase;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px 0px;
-    cursor: pointer;
-    border-radius: 24px;
-    transition: 0.5s;
-  }
-
-.button:hover{
-    transform: scale(1.1);
-}
-
-/* ----------------------------------------------------------- Navbar ----------------------------------------------------------- */
-
-.nav-bar {
-    margin: 0;
-    list-style: none;
-    height: auto;
-    width: 100%;
-    position: relative;
-    display: flex;
-    background-color: var(--dark-grey)
-}
-
-.nav-bar ul{
-    margin: 0;
-    display: flex;
-}
-
-#nav-icon{
-    margin: 10px;
-    transition: 1s;
-}
-
-#nav-icon:hover{
-    transform: scale(1.5);
-}
-
-.nav-bar ul{
-    width: 100%;
-}
-
-.nav-bar li{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 6vw;
-    transition: 0.5s;
-}
-
-.nav-bar li a{
-    text-decoration: none;
-    color: white;
-    text-transform: uppercase;
-}
-
-.nav-bar li:hover{
-    background: linear-gradient(90deg, rgba(208,15,15,1) 0%, rgba(179,0,255,1) 100%);
-    transform: scale(1.1);
-}
-
-/* --------------------------------------------------- Hero --------------------------------------------------------------------- */
-
-#hero{
-    background: white;
-    height: 90%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#hero h1{
-    color: black;
-    font-size: 5em;
-}
-
-#hero-text{
-    width: 50%;
-    color: var(--dark-grey);
-    display: flex;
-    flex-direction: column;
-    margin: 2em;
-}
-
-#xphone-orp-hero{
-    margin-left: 20ch;
-    height: 70vh;
-    transform: rotate(20deg);
-}
-
-/* --------------------------------------------------- XPhone Info -------------------------------------------------------------- */
-
-#xphone-info{
-    color: var(--dark-grey);
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-}
-
-#xphone-container{
-    display: flex;
-    margin: 5%;
-}
-
-#xphone-info-textarea{
-    display: flex;
-    flex-direction: column;
-    margin-left: 10vh;
-    
-}
-
-#xphone-info h1{
-    font-size: 6vh;
-}
-
-#xphone-orp-pic{
-    height: 40vw;
-    margin-left: 50px;
-}
-
-/* --------------------------------------------------- Card Component ----------------------------------------------------------- */
-.card-grid{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.btn{
+    background: linear-gradient(0deg, rgba(187,20,20,1) 0%, rgba(183,8,247,1) 100%);
 }
 
 .card {
-    margin: 2.5%;
-    padding: 2.5%;
-    color: #171717;
-    border-radius: 16px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 20em;
-    box-shadow: -15px 15px 10px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 0.5s cubic-bezier(.25,.8,.25,1);
-}
+    display: block; 
+      margin-bottom: 20px;
+      line-height: 1.42857143;
+      background-color: #fff;
+      border-radius: 2px;
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12); 
+      transition: box-shadow .25s; 
+      min-height: 30em;
+  }
+  .card:hover {
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  .img-card {
+    width: 100%;
+    height:200px;
+    border-top-left-radius:2px;
+    border-top-right-radius:2px;
+    display:block;
+      overflow: hidden;
+  }
+  .img-card img{
+    width: 100%;
+    height: 200px;
+    object-fit:cover; 
+    transition: all .25s ease;
+  } 
+  .card-content {
+    padding:15px;
+    text-align:left;
+  }
+  .card-title {
+    margin-top:0px;
+    font-weight: 700;
+    font-size: 1.65em;
+  }
+  .card-title a {
+    color: #000;
+    text-decoration: none !important;
+  }
+  .card-read-more {
+    border-top: 1px solid #D4D4D4;
+  }
+  .card-read-more a {
+    text-decoration: none !important;
+    padding:10px;
+    font-weight:600;
+    text-transform: uppercase
+  }
 
-.card:hover {
-    box-shadow: -15px 15px 28px var(--dark-grey), 0 10px 10px var(--dark-grey);
-    transform: translateY(-25px);;
+/* --------------------------------------------------- Hero ----------------------------------------------------------- */
+#heropic{
+    height: 45em;
 }
 
 /* --------------------------------------------------- Animations ----------------------------------------------------------- */

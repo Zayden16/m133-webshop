@@ -4,122 +4,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webstore</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="/stylesheets/styles.css">
+    <script src="https://kit.fontawesome.com/762c79917a.js" crossorigin="anonymous"></script>
+    <title>Webshop</title>
 </head>
 
 <body>
-    <nav class="nav-bar fadein">
-        <ul>
-            <svg class="nav-icon" width="60" height="75 " viewBox="0 0 300 300" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <circle cx="150" cy="150" r="150" fill="#D00F0F" />
-                <circle cx="150" cy="150" r="150" fill="url(#paint0_linear)" />
-                <path
-                    d="M232.212 144.513C205.459 113.275 177.117 97 150.099 97C123.082 97 94.7395 113.275 67.9866 144.513C65.3378 147.4 65.3378 151.862 67.9866 154.75C94.7395 185.725 123.082 202 150.099 202C177.117 202 205.459 185.725 232.212 154.488C234.596 151.6 234.596 147.4 232.212 144.513ZM150.099 191.5C127.055 191.5 101.361 176.537 77.5223 149.5C101.361 122.462 127.055 107.5 150.099 107.5C173.144 107.5 198.837 122.462 222.676 149.5C198.837 176.537 173.144 191.5 150.099 191.5Z"
-                    fill="white" />
-                <path
-                    d="M150.5 118C133.175 118 119 132.175 119 149.5C119 166.825 133.175 181 150.5 181C167.825 181 182 166.825 182 149.5C182 132.175 167.825 118 150.5 118ZM150.5 170.5C138.95 170.5 129.5 161.05 129.5 149.5C129.5 137.95 138.95 128.5 150.5 128.5C162.05 128.5 171.5 137.95 171.5 149.5C171.5 161.05 162.05 170.5 150.5 170.5Z"
-                    fill="white" />
-                <defs>
-                    <linearGradient id="paint0_linear" x1="150" y1="0" x2="150" y2="300" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#B300FF" />
-                        <stop offset="1" stop-color="white" stop-opacity="0" />
-                    </linearGradient>
-                </defs>
-            </svg>
-            <li><a class="nav-link" href="#">Home</a></li>
-            <li><a class="nav-link" href="#xphone-info">XPhone Pro</a></li>
-            <li><a class="nav-link" href="#link3">link3</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img id="navbar-icon" src="/media/icon.svg" alt=""></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#xphone">XPhone</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#shop">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#aboutus">About Us</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> <i
+                                class="fas fa-shopping-cart"></i>
+
+                            Shopping Cart
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">CSS</a></li>
+                            <li><a href="#">JavaScript</a></li>
+                        </ul>
+                    </div>
+                </ul>
     </nav>
-    <section id="hero" class="fadein">
-        <div id="hero-text">
-            <h1>The new XPhone Orp</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
-            <div>
-                <a class="button" href="#home">Buy Now</a>
-                <a class="button" href="#xphone-info">See more</a>
+
+    <!-- Hero -->
+    <div class="bg-light">
+        <div id="banner1" class="banner py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 align-self-center">
+                        <h2 class="title my-3 font-weight-bold">The new XPhone Orp!</h2>
+                        <p class="mt-4 mb-3">To accomplish great things, we must not only act, but also dream; not only
+                            plan, but also believe.</p>
+                        <div class="mt-4">
+                            <div class="input-group mb-3">
+                                <div class="input-group-append">
+                                    <a class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
+                                        href="#shop">Shop Now</a>
+                                    <a class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
+                                        href="#xphone">More Info</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 align-self-end justify-content-end">
+                        <img id="heropic" src="media/XPhone.png" />
+                    </div>
+                </div>
             </div>
         </div>
-        <img id="xphone-orp-hero" src="./media/XPhone.png" alt="The new XPhone Orp">
-    </section>
-    <section id="xphone-info">
-        <div id="xphone-container">
-            <img id="xphone-orp-pic" src="./media/XPhone.png" alt="The new XPhone Orp">
-            <div id="xphone-info-textarea">
-                <h1>The brand new XPhone Orp</h1>
-                <h2>Exactly like the old one but this time with more clout.</h2>
-                <h2>Specsheet</h2>
-                <h3>Kryptonite&#8482; Mk. XII Comet Hexaquadrillion Core Processor</h3>
-                <h3>Infinity&#8482; Mk. V Apollo GPU with 128 CUDA Cores</h3>
-                <h3>69.42 MP Camera Sensor</h3>
-                <h3>128/256/512GB Storage</h3>
-                <h3>16/32/64GB RAM</h3>
-                <h3>Just buy it already!</h3>
-                <h6>You know you want to!</h6>
+        <!-- Hero end -->
+        <!-- About Xphone Start -->
+        <div class="bg-dark">
+            <div class="row">
+                <div class="d-flex align-self-center justify-content-center">
+                    <h1 class="title my-3 font-weight-bold text-white">XPhone Orp&#8482;</h1>
+                    <a id="xphone"></a>
+                </div>
+                <div class="p-5 col-md-6 col-lg-6">
+                    <img id="heropic" src="media/XPhone.png" />
+                </div>
+                <div class="p-5 col-md-6 col-lg-6 text-white">
+                    <h1 class="p2">The brand new XPhone Orp</h1>
+                    <h2 class="p2">Exactly like the old one but this time with more clout.</h2>
+                    <h2>Specsheet</h2>
+                    <h3>Kryptonite&#8482; Mk. XII Comet Hexaquadrillion Core Processor</h3>
+                    <h3>Infinity&#8482; Mk. V Apollo GPU with 128 CUDA Cores</h3>
+                    <h3>69.42 MP Camera Sensor</h3>
+                    <h3>128/256/512GB Storage</h3>
+                    <h3>16/32/64GB RAM</h3>
+                    <h3>Just buy it already!</h3>
+                    <h6>You know you want to!</h6>
+                </div>
             </div>
         </div>
-    </section>
+        <!-- About Xphone end -->
+        <!-- Shop Start -->
+        <a id="shop"/>
+        <div class="bg-light">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="m-5 card">
+                        <a class="img-card" href="#">
+                            <img src="/media/XPhone.png">
+                        </a>
+                        <div class="card-content">
+                            <h4 class="card-title">
+                                <a href="#"> The XPhone Basic Edition</a>
+                            </h4>
+                            <p>The XPhone Basic Edition ist designed for optimum cost-effectiveness</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group mb-3">
+                                        <button class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
+                                            type="submit"> <i class="fas fa-cart-plus"></i>
+                                        </button>
+                                        <button class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
+                                            type="submit"> <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <h3>CHF 150*</h3>
+                                    <p class="text-muted">By buying the XPhone at this Price you agree to sell us your soul & all your data</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="m-5 card">
+                        <a class="img-card" href="#">
+                            <img src="/media/XPhone.png">
+                        </a>
+                        <div class="card-content">
+                            <h4 class="card-title">
+                                <a href="#"> The XPhone Standard Edition</a>
+                            </h4>
+                            <p>The XPhone Basic Edition ist designed for standard cost-effectiveness</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group mb-3">
+                                        <button class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
+                                            type="submit"> <i class="fas fa-cart-plus"></i>
+                                        </button>
+                                        <button class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
+                                            type="submit"> <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <h3>CHF 1500</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="m-5 card">
+                        <a class="img-card" href="#">
+                            <img src="/media/XPhone.png">
+                        </a>
+                        <div class="card-content">
+                            <h4 class="card-title">
+                                <a href="#"> The XPhone VVIP Edition</a>
+                            </h4>
+                            <p>The XPhone Basic Edition ist designed for the least cost-effectiveness</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group mb-3">
+                                        <button class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
+                                            type="submit"> <i class="fas fa-cart-plus"></i>
+                                        </button>
+                                        <button class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
+                                            type="submit"> <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <h3>CHF 2500</h3>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Shop End -->
+        <!-- About Us Start -->
+        <a id="aboutus"/>
+        <div class="mt-5 pt-5 pb-5 footer bg-dark text-white">
+            <div class="container">
+                <div class="row">
+                  <div class="col-lg-5 col-xs-12 about-company">
+                    <h2>We are a new Startup</h2>
+                    <p class="pr-5 text-white-50">That makes niche Smartphones for the future </p>
+                  </div>
+                  <div class="col-lg-4 col-xs-12 location">
+                    <h4 class="mt-lg-0 mt-sm-4">Location</h4>
+                    <p>22 Republic Avenue <br> Pretoria 81 <br> Republic of South Africa</p>
+                    <p class="mb-0"><i class="fa fa-phone mr-3"></i>(541) 754-3010</p>
+                    <p><i class="fa fa-envelope-o mr-3"></i>info@xphone.tech</p>
+                  </div>
+                </div>
+                <div class="row mt-5">
+                  <div class="col copyright">
+                    <p class=""><small class="text-white-50">© 2020. All Rights Reserved.</small></p>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <!-- About Us End -->
 
-    <section class="card-grid">
-        <article class="card">
-            <img class="card-thumb" src="">
-            <h2>XPhone Pro Plebeian Edition&#169;&#8482;</h2>
-            <p>This is the lowest spec one you can buy. For the average Plebeian.</p>
-            <div class="card-icons">
-                <div class="card-icon">
-                    <a class="repo-link" target="_blank" href="https://github.com/Zayden16/m133-canban-board"><i
-                            class='fab fa-github'></i>
-                    </a>
-                </div>
-                <div class="card-icon">
-                    <a class="repo-link" target="_blank" href="https://canban.zayden.ch/"><i class='fas fa-eye'></i>
-                    </a>
-                </div>
-            </div>
-        </article>
-        <article class="card">
-            <img class="card-thumb" src="">
-            <h2>M133 Canban Board</h2>
-            <p>This project is part of Module 113 at the BBZW Sursee. We were tasked to build a simple Canban
-                Board
-                using what we learned in the course.</p>
-            <div class="card-icons">
-                <div class="card-icon">
-                    <a class="repo-link" target="_blank" href="https://github.com/Zayden16/m133-canban-board"><i
-                            class='fab fa-github'></i>
-                    </a>
-                </div>
-                <div class="card-icon">
-                    <a class="repo-link" target="_blank" href="https://canban.zayden.ch/"><i class='fas fa-eye'></i>
-                    </a>
-                </div>
-            </div>
-        </article>
-        <article class="card">
-            <img class="card-thumb" src="">
-            <h2>M133 Canban Board</h2>
-            <p>This project is part of Module 113 at the BBZW Sursee. We were tasked to build a simple Canban
-                Board
-                using what we learned in the course.</p>
-            <div class="card-icons">
-                <div class="card-icon">
-                    <a class="repo-link" target="_blank" href="https://github.com/Zayden16/m133-canban-board"><i
-                            class='fab fa-github'></i>
-                    </a>
-                </div>
-                <div class="card-icon">
-                    <a class="repo-link" target="_blank" href="https://canban.zayden.ch/"><i class='fas fa-eye'></i>
-                    </a>
-                </div>
-            </div>
-        </article>
-    </section>
-</body>
-
+        <script src="js/app.js" />
+        </body>
 </html>

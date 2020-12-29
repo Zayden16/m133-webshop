@@ -10,7 +10,7 @@ export class Article extends Model{
         ArticleId: {
             primaryKey: true,
             autoIncrement: true,
-            type: DataTypes.INTEGER
+            type: DataTypes.UUID
         },
         ArticleTitle: {
             type: DataTypes.STRING,
