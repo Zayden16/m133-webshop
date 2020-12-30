@@ -1,14 +1,21 @@
-import { Article } from "../models/Article.ts";
+import { RouterContext } from "../deps.ts";
+import { renderFileToString } from "../deps.ts"
+import data  from "../data/data.ts"
 
-class SiteController{
-    getAllArticles(): Promise<Article>{
-        let articles: Article = 
-        return articles;
+export class SiteController{
+    async Index(ctx: RouterContext) {
+        const articles = data.getAllArticles();
+        ctx.response.body = await renderFileToString(
+            `${Deno.cwd()}/views/index.ejs`,
+            {articles : articles}
+        );
     }
-    viewArticle(){
-
+    async Test(ctx: RouterContext) {
+        ctx.response.body = await renderFileToString(
+            `${Deno.cwd()}/views/test.ejs`,
+            {}
+        );
     }
 }
-
-const siteController = new SiteController;
+const siteController = new SiteController();
 export default siteController;

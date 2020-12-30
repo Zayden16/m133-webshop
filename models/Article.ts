@@ -1,33 +1,17 @@
-import {
-    DataTypes,
-    Model
-  } from 'https://deno.land/x/denodb/mod.ts';
+import { v4 } from "https://deno.land/std@0.82.0/uuid/mod.ts";
 
-export class Article extends Model{
-    static table = 'Articles';
-    static timestamps = true;
-    static fields = {
-        ArticleId: {
-            primaryKey: true,
-            autoIncrement: true,
-            type: DataTypes.UUID
-        },
-        ArticleTitle: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        ArticleDescription: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        ArticlePicture: {
-            type: DataTypes.BINARY,
-            unique: true,
-            allowNull: false,
-        },
-        ArticlePrice: {
-            type: DataTypes.DECIMAL,
-            allowNull: false,
-        },
+export class Article{
+    ArticleId: string;
+    ArticleTitle: string;
+    ArticleDescription: string;
+    ArticlePrice: number;
+    ArticlePicture?: number;
+
+    constructor(artTitle: string, artDesc:string, artPrice: number, artPic?: number) {
+        this.ArticleId = v4.generate();
+        this.ArticleTitle = artTitle;
+        this.ArticleDescription = artDesc;
+        this.ArticlePrice = artPrice;
+        this.ArticlePicture = artPic;
     }
 }

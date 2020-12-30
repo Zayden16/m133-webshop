@@ -1,7 +1,5 @@
-import { Application, send } from "https://deno.land/x/oak/mod.ts"
-import { Article } from './models/Article.ts'
-import api from "./router.ts";
-import db from "./dbHelper.ts"
+import { Application, send } from "./deps.ts"
+import router from "./router.ts";
 
 const app = new Application();
 const PORT = 8000;
@@ -25,13 +23,9 @@ app.use(async (ctx, next) =>{
 });
 
 //Router Middleware
-app.use(api.routes());
+app.use(router.routes());
 //Returns HTTP 405 if an unallowed method is used
-app.use(api.allowedMethods());
-
-//Db stuff
-await db.link([Article]);
-await db.sync({drop:true});
+app.use(router.allowedMethods());
 
 //Security + Static Server
 //Using the FileWhitelist to manually approve of all files shared publicly
@@ -42,7 +36,8 @@ app.use(async (ctx) =>{
         "/media/XPhone.png",
         "/media/icon.svg",
         "/js/app.js",
-        "/stylesheets/styles.css"
+        "/stylesheets/styles.css",
+        "/views/test.ejs"
     ];
     if (fileWhitelist.includes(filePath)){
         await send (ctx, filePath, {
@@ -50,6 +45,7 @@ app.use(async (ctx) =>{
         });
     }
 });
+
 
 console.log(`Application running on Port ${PORT}`);
 
