@@ -30,7 +30,8 @@ class ArticleController{
     async createArticle(ctx: RouterContext){
         const { value } = ctx.request.body({type: "json"});
         const obj = await value;
-        data.createArticle(obj);
+        const art = new Article(obj.ArticleTitle, obj.ArticleDescription, obj.ArticlePrice);
+        data.createArticle(art);
         ctx.response.body = "Article was created";
         ctx.response.status = 200;
     }
