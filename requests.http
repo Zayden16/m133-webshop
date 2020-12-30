@@ -1,9 +1,13 @@
 # Collection of HTTP Requests in RFC 2616
 
-# Get All Articles
+### Get All Articles
 GET /api/getallarticles HTTP/1.1
 
-# Create an Article
+### Get Article
+GET /api/article/cb242b9e-0bed-44fb-a51c-a9d1fe346e6c HTTP/1.1
+Host: localhost:8000
+
+### Create an Article
 POST /api/createarticle HTTP/1.1
 Host: localhost:8000
 Content-Type: json
@@ -14,6 +18,6 @@ Content-Type: json
     "ArticlePrice": 150
 }
 
-### Delete Article
-DELETE /api/deletearticle/
+### Delete Article by ID
+DELETE /api/deletearticle/650b566b-4013-4953-b7f9-d4b5ae086259 HTTP/1.1
 Host: localhost:8000
