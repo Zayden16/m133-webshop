@@ -6,14 +6,16 @@ export class SiteController{
     async Index(ctx: RouterContext) {
         const articles = data.getAllArticles();
         ctx.response.body = await renderFileToString(
-            `${Deno.cwd()}/views/index.ejs`,
+            `${Deno.cwd()}/views/IndexView.ejs`,
             {articles : articles}
         );
     }
-    async Test(ctx: RouterContext) {
+    async ArticleDetail(ctx: RouterContext) {
+        const artId: string = ctx.params.id!; 
+        const article = data.getArticle(artId);
         ctx.response.body = await renderFileToString(
-            `${Deno.cwd()}/views/test.ejs`,
-            {}
+            `${Deno.cwd()}/views/ArticleDetailView.ejs`,
+            {article: article}
         );
     }
 }

@@ -5,7 +5,7 @@ import siteController from "./controllers/SiteController.ts";
 const router = new Router();
 
 router.get("/", siteController.Index);
-router.get("/test", siteController.Test);
+router.get("/ArticleDetail/:id", siteController.ArticleDetail);
 
 // Router Def for Articles
 router.get("/api/getallarticles", articleController.getAllArticles);
