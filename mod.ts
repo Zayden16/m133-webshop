@@ -32,7 +32,6 @@ app.use(router.allowedMethods());
 app.use(async (ctx) =>{
     const filePath = ctx.request.url.pathname;
     const fileWhitelist = [
-        "/index.html",
         "/media/XPhone.png",
         "/media/icon.svg",
         "/js/app.js",
