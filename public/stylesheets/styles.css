@@ -9,6 +9,9 @@
 
 /* --------------------------------------------------- Components ----------------------------------------------------------- */
 
+h6{
+  font-size: 8pt;
+}
 
 .btn {
   background: linear-gradient(0deg, rgba(187, 20, 20, 1) 0%, rgba(183, 8, 247, 1) 100%);
@@ -73,7 +76,37 @@
   text-transform: uppercase
 }
 
+.article-card{
+  margin: 5em;
+  padding: 2em;
+  line-height: 1.42857143;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  transition: box-shadow .25s;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  max-width: 50%;
+}
+
+.article-card:hover {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.article-card-picture{
+  height: 30em;
+}
+
+.article-details{
+  display: flex;
+  height: 30em;
+  flex-grow: 2;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
 /* --------------------------------------------------- Hero ----------------------------------------------------------- */
+
 #heropic {
   height: 45em;
 }

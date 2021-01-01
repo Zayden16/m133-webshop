@@ -2,6 +2,8 @@
 
 ### Get All Articles
 GET /api/getallarticles HTTP/1.1
+Host: localhost:8000
+
 
 ### Get Article
 GET /api/article/cb242b9e-0bed-44fb-a51c-a9d1fe346e6c HTTP/1.1
