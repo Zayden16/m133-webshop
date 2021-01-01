@@ -61,7 +61,7 @@
                 <p> <%= article.ArticleDescription %> </p>
                 <p> CHF <%= article.ArticlePrice %> </p>
                 <div class="article-input-group mb-3">
-                    <span class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"> <i
+                    <span onclick="decrementArticleCounter()" class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"> <i
                             class="fas fa-minus"></i>
                     </span>
                     <input id="article-counter" class="article-counter" type="number" min="1" value="1" />
