@@ -15,6 +15,11 @@ h6{
 
 .btn {
   background: linear-gradient(0deg, rgba(187, 20, 20, 1) 0%, rgba(183, 8, 247, 1) 100%);
+  transition: 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
 }
 
 .card {
@@ -127,6 +132,9 @@ h6{
   width: 100%;
 }
 
+.price{
+  font-weight: 700;
+}
 
 /* --------------------------------------------------- Hero ----------------------------------------------------------- */
 
