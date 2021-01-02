@@ -106,11 +106,14 @@
         <!-- Shop Start -->
         <a id="shop" />
         <div class="bg-light">
+            <div class="d-flex align-self-center justify-content-center">
+                <h1 class="title my-3 font-weight-bold text-dark">Shop</h1>
+            </div>
             <div class="card-grid-container">
                 <% for (let article of articles){ %>
                 <div class="m-5 card">
                     <a class="img-card" href="#">
-                        <img src="/media/XPhone.png">
+                        <img src="data:image/png;base64, <%= article.ArticlePicture %>">
                     </a>
                     <div class="card-content">
                         <h4 class="card-title">
