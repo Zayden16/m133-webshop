@@ -1,5 +1,4 @@
-import { RouterContext } from "../deps.ts";
-import { renderFileToString } from "../deps.ts"
+import { RouterContext, renderFileToString} from "../deps.ts";
 import data  from "../data/data.ts"
 
 export class SiteController{
@@ -10,8 +9,9 @@ export class SiteController{
             {articles : articles}
         );
     }
+    
     async ArticleDetail(ctx: RouterContext) {
-        const artId: string = ctx.params.id!; 
+        const artId: string = ctx.params.id!;
         const article = data.getArticle(artId);
         ctx.response.body = await renderFileToString(
             `${Deno.cwd()}/views/ArticleDetailView.ejs`,

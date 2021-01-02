@@ -1,4 +1,4 @@
-import { Application, send } from "./deps.ts"
+import { Application, send, Session } from "./deps.ts"
 import router from "./router.ts";
 
 const app = new Application();
@@ -21,6 +21,12 @@ app.use(async (ctx, next) =>{
     const delta = Date.now() - start;
     ctx.response.headers.set("X-Response-Time", `${delta}ms`);
 });
+
+// Session Middleware
+const session = new Session({ framework:"oak" });
+await session.init();
+app.use(session.use()(session));
+
 
 //Router Middleware
 app.use(router.routes());
