@@ -25,7 +25,7 @@ app.use(async (ctx, next) =>{
 // Session Middleware
 const session = new Session({ framework:"oak" });
 await session.init();
-app.use(session.use()(session, { path: "/", httpOnly: true, secure: false }))
+app.use(session.use()(session));
 
 
 //Router Middleware
