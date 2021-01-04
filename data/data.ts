@@ -1,4 +1,6 @@
 import { Article } from "../deps.ts";
+import { Cart } from "../models/Cart.ts";
+import { CartItem } from "../models/CartItem.ts";
 
 class Data{
     articlesList: Article[] = [
@@ -37,6 +39,31 @@ class Data{
             return new Deno.errors.NotFound;
         }
     }
+    cartsList: Cart[] = [];
+
+    getCart(id:string){
+        let i = 0;
+        for (; i < this.cartsList.length; i++) {
+            if (this.cartsList[i].CartId == id) {
+                return(this.cartsList[i]);
+            }
+        }
+    }
+
+    addToCart(cartId: string, itemId:string, amount:number){
+        const cartItem = new CartItem(itemId, amount);
+        const cart = new Cart();
+        cart.CartItems.push(cartItem);
+    }
+
+    checkoutCart(cartId: string){
+
+    }
+    
+    deleteCart(cartId: string){
+
+    }
+
 }
 const data = new Data();
 export default data;
