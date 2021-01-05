@@ -7,6 +7,8 @@ const router = new Router();
 
 router.get("/", siteController.Index);
 router.get("/ArticleDetail/:id", siteController.ArticleDetail);
+router.get("/Cart/:id", siteController.Cart);
+
 
 // Router Def for Articles
 router.get("/api/getallarticles", articleController.getAllArticles);

@@ -51,7 +51,6 @@ app.use(async (ctx) =>{
     }
 });
 
-
 console.log(`Application running on Port ${PORT}`);
 
 await app.listen({

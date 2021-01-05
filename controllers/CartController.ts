@@ -12,9 +12,9 @@ export class CartController{
         else{
             ctx.response.status = 200;
             ctx.response.body = "Cart not found";
-        } 
+        }
     }
-    
+
     async addToCart(ctx: RouterContext){
         const { value } = ctx.request.body({type: "json"});
         const obj = await value;

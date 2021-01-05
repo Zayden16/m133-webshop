@@ -39,7 +39,11 @@ class Data{
             return new Deno.errors.NotFound;
         }
     }
-    cartsList: Cart[] = [];
+    cartsList: Cart[] = [{ CartId: "6585c438-59f5-4b4a-97bf-2cb271a11377", CartItems: [{ArticleId: "cb242b9e-0bed-44fb-a51c-a9d1fe346e6c", Amount: 1}]}];
+
+    createCart(cart: Cart){
+        this.cartsList.push(cart);
+    }
 
     getCart(id:string){
         let i = 0;

@@ -50,34 +50,17 @@
             </div>
         </div>
     </nav>
-    <!-- Article Card -->
-    <div class="article-card-container">
-        <div class="article-card">
-            <div class="article-picture">
-                <img class="article-card-picture" src="data:image/png;base64, <%= article.ArticlePicture %>">
-            </div>
-            <div class="article-details">
-                <h1> <%= article.ArticleTitle %> </h1>
-                <p> <%= article.ArticleDescription %> </p>
-                <p class="price"> CHF <%= article.ArticlePrice %> </p>
-                <div class="article-input-group mb-3">
-                    <span onclick="decrementArticleCounter()" class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"> <i
-                            class="fas fa-minus"></i>
-                    </span>
-                    <input id="article-counter" class="article-counter" type="number" min="1" value="1" />
-                    <span class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
-                        onclick="incrementArticleCounter()"> <i class="fas fa-plus"></i>
-                    </span>
-                    <button class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
-                        value="<%= article.ArticleId %>" type="submit"> <i class="fas fa-cart-plus"></i>
-                    </button>
-                    </a>
-                </div>
-                <h6 class="text-muted text-uppercase"> <%= article.ArticleId %></h6>
-            </div>
-        </div>
+    <!-- Shopping Cart -->
+    <div class="bg-light">
+        <h1>
+            <%= cart.CartId %> 
+            <% for (let cartitem of cart.CartItems){ %>
+                <h1> <%= cartitem.ArticleId %> </h1>
+                <h2> <%= cartitem.Amount %></h2>
+                <% } %>
+        </h1>
     </div>
-    <!-- Article Card End -->
+    <!-- Shopping Cart End -->
     <!-- About Us Start -->
     <a id="aboutus" />
     <div class="mt-5 pt-5 pb-5 footer bg-dark text-white">

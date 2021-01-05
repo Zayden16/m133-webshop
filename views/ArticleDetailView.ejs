@@ -64,13 +64,13 @@
                     <span onclick="decrementArticleCounter()" class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"> <i
                             class="fas fa-minus"></i>
                     </span>
-                    <input id="article-counter" class="article-counter" type="number" min="1" value="1" />
+                    <input id="article-counter-<%=article.ArticleId%>" class="article-counter" type="number" min="1" value="1" />
                     <span class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
                         onclick="incrementArticleCounter()"> <i class="fas fa-plus"></i>
                     </span>
-                    <button class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
-                        value="<%= article.ArticleId %>" type="submit"> <i class="fas fa-cart-plus"></i>
-                    </button>
+                    <span class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
+                        value="<%= article.ArticleId %>" onclick="addToCart(this)"> <i class="fas fa-cart-plus"></i>
+                    </span>
                     </a>
                 </div>
                 <h6 class="text-muted text-uppercase"> <%= article.ArticleId %></h6>
