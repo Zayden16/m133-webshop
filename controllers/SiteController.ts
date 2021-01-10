@@ -6,9 +6,9 @@ import cartController from "./CartController.ts";
 export class SiteController{
     async Index(ctx: RouterContext) {
         const articles = data.getAllArticles();
-        if (await ctx.state.session.get("sessionId") == null){
+        if (await ctx.state.session.get("cart") == null){
             const cart = new Cart();
-            await ctx.state.session.set("sessionId", cart.CartId);
+            await ctx.state.session.set("cart", cart);
             data.createCart(cart);
             console.log(cart);
         }
@@ -31,8 +31,7 @@ export class SiteController{
     }
 
     async Cart(ctx: RouterContext){
-        const sessionId = await ctx.state.session.get("sessionId");
-        const cart = data.getCart("6585c438-59f5-4b4a-97bf-2cb271a11377");
+        const cart = await ctx.state.session.get("cart");
         ctx.response.body = await renderFileToString(
             `${Deno.cwd()}/views/CartView.ejs`,
             {cart: cart}
