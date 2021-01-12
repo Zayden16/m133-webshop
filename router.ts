@@ -15,10 +15,7 @@ router.get("/api/article/:id", articleController.article);
 router.post("/api/createarticle", articleController.createArticle);
 router.delete("/api/deletearticle/:id", articleController.deleteArticle);
 
-// Router Def for Carts
-router.get("/api/cart/:id", cartController.Cart);
-// router.get("/api/cart/gettotal", cartController.getCartTotal)
-router.post("/api/cart/additem", cartController.addToCart);
-// router.post("/api/cart/deleteitem", cartController.deleteFromCart);
+//Router Def for Cart
+router.post("/api/cart/addItem", cartController.addToCart)
 
 export default router;

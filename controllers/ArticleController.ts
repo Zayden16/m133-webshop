@@ -36,10 +36,6 @@ class ArticleController{
         ctx.response.status = 200;
     }
 
-    async updateArticle(ctx: RouterContext){
-        //TO-DO
-    }
-
     async deleteArticle(ctx: RouterContext){
         try {
             const id: string = await ctx.params.id!;

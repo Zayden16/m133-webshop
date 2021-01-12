@@ -9,11 +9,10 @@ export class SiteController{
         if (await ctx.state.session.get("cart") == null){
             const cart = new Cart();
             await ctx.state.session.set("cart", cart);
-            data.createCart(cart);
             console.log(cart);
         }
         else{
-            const cart = data.getCart(await ctx.state.session.get("cart"));
+            const cart = await ctx.state.session.get("cart");
         }
         ctx.response.body = await renderFileToString(
             `${Deno.cwd()}/views/IndexView.ejs`,
@@ -32,6 +31,7 @@ export class SiteController{
 
     async Cart(ctx: RouterContext){
         const cart = await ctx.state.session.get("cart");
+        console.log(cart);
         ctx.response.body = await renderFileToString(
             `${Deno.cwd()}/views/CartView.ejs`,
             {cart: cart}

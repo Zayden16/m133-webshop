@@ -1,12 +1,15 @@
-import { v4 } from "https://deno.land/std@0.82.0/uuid/mod.ts";
+
 import { CartItem } from "./CartItem.ts";
 
 export class Cart{
-    CartId: string;
     CartItems: CartItem[];
 
     constructor() {
-        this.CartId = v4.generate();
         this.CartItems = [];
      }
+
+    addItem(item: CartItem) {
+        this.CartItems.push(item);
+        console.log(this);
+    }
 }

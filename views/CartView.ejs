@@ -55,15 +55,12 @@
         <h1 class="text-center">Shopping cart</h1>
         <div class="card-grid-container">
             <div class="cart-card">
-                <% for (let cartitem of cart.CartItems){ %>
-                    <!-- <h3><%= cartitem.ArticleId %></h3> -->
-                    <!-- <h2> <%= cartitem.Amount %></h2> -->
+                <% for (let item of cart.CartItems){ %>
+                    <h3><%= item.ArticleId %></h3>
+                    <h2> <%= item.Amount %></h2>
                     <% } %>
                     <div class="cart-item">
-                        
-                        <h8>c7e7a65a-8426-4a37-820f-877cb59e4592</h8>
                     </div>
-
                 <h5 class="text-muted">Cart ID: <%= cart.CartId %></h5>
             </div>
         </div>
