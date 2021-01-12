@@ -13,7 +13,7 @@ export class SiteController{
             console.log(cart);
         }
         else{
-            const cart = data.getCart(await ctx.state.session.get("sessionId"));
+            const cart = data.getCart(await ctx.state.session.get("cart"));
         }
         ctx.response.body = await renderFileToString(
             `${Deno.cwd()}/views/IndexView.ejs`,

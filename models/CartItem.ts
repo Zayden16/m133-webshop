@@ -1,8 +1,11 @@
+import data from "../data/data.ts";
+import { Article } from "../deps.ts";
+
 export class CartItem{
-    ArticleId: string;
-    Amount:number;
+    Article;
+    Amount: number;
     constructor(ArtId: string, amount: number) {
-        this.ArticleId = ArtId;
-        this.Amount =amount;
+        this.Article = data.getArticle(ArtId);
+        this.Amount = amount;
     }
 }

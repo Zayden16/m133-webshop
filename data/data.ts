@@ -1,4 +1,4 @@
-import { Article } from "../deps.ts";
+import { Article, Session } from "../deps.ts";
 import { Cart } from "../models/Cart.ts";
 import { CartItem } from "../models/CartItem.ts";
 
@@ -15,9 +15,10 @@ class Data{
 
     getArticle(id: string){
         let i = 0;
+        let art: Article;
         for (; i < this.articlesList.length; i++) {
             if (this.articlesList[i].ArticleId == id) {
-                return(this.articlesList[i]);
+                return art = (this.articlesList[i]);
             }
         }
     }
@@ -68,9 +69,6 @@ class Data{
 
     }
 
-    getArtInfoCart(cart:Cart){
-        const cart = 
-    }
 }
 const data = new Data();
 export default data;

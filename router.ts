@@ -7,8 +7,7 @@ const router = new Router();
 
 router.get("/", siteController.Index);
 router.get("/ArticleDetail/:id", siteController.ArticleDetail);
-router.get("/Cart/:id", siteController.Cart);
-
+router.get("/Cart", siteController.Cart);
 
 // Router Def for Articles
 router.get("/api/getallarticles", articleController.getAllArticles);
@@ -18,7 +17,8 @@ router.delete("/api/deletearticle/:id", articleController.deleteArticle);
 
 // Router Def for Carts
 router.get("/api/cart/:id", cartController.Cart);
-router.post("/api/addtocart", cartController.addToCart);
-
+// router.get("/api/cart/gettotal", cartController.getCartTotal)
+router.post("/api/cart/additem", cartController.addToCart);
+// router.post("/api/cart/deleteitem", cartController.deleteFromCart);
 
 export default router;
