@@ -22,19 +22,29 @@
             <li><a href="#banner1">Home</a></li>
             <li><a href="#xphone">XPhone Orp</a></li>
             <li><a href="#shop">Shop</a></li>
-            <li><i class="fas fa-shopping-cart"></i></li>
+            <li><button id="cart-toggler"class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub">
+                <i class="fas fa-shopping-cart"></i>
+            </button></li>
         </ul>
     </nav>
     <!-- MiniCart -->
-    <div class="minicart">
+    <div id="minicart">
         <ul>
+            <h1 class="text-center">Shopping Cart</h1>
             <% if (dataContext.cart.CartItems) { %>
-                <% for (let cartItem of dataContext.cart.CartItems){ %>
-                    <li>
-                        <h3><%= cartItem.ArticleId %> </h3>
-                    </li>
-                <% } %>
+            <% for (let cartItem of dataContext.cart.CartItems){ %>
+            <li>
+                <h3><%= cartItem.ArticleId %></h3>
+                <h3><%= cartItem.Amount %></h3>
+            </li>
             <% } %>
+            <% } %>
+            <div class="input-group">
+                <div class="input-group-append">
+                    <a class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub" href="/cart">View Cart</a>
+                    <a class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub" href="#xphone">Checkout</a>
+                </div>
+            </div>
         </ul>
     </div>
     <!-- Hero -->
@@ -111,7 +121,7 @@
                                 <div class="input-group mb-3">
                                     <a class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
                                         href="/ArticleDetail/<%= article.ArticleId %>"><i class="fas fa-eye"></i>
-                                </a>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-md-6 text-right">
@@ -150,6 +160,7 @@
     </div>
     <!-- About Us End -->
 
-    <script src="js/app.js" />
+    <script src="/js/app.js"></script>
+
     </body>
 </html>

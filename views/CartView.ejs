@@ -55,13 +55,17 @@
         <h1 class="text-center">Shopping cart</h1>
         <div class="card-grid-container">
             <div class="cart-card">
-                <% for (let item of dataContext.cart.CartItems){ %>
-                    <h3><%= item.ArticleId %></h3>
-                    <h2> <%= item.Amount %></h2>
+                <div class="cart-item">
+                <% if (dataContext.cart.CartItems) { %>
+                    <% for (let cartItem of dataContext.cart.CartItems){ %>
+                        <h3><%= cartItem.ArticleId %></h3>
+                        <h3><%= cartItem.Amount %></h3>
                     <% } %>
-                    <div class="cart-item">
-                    </div>
-                <h5 class="text-muted">Cart ID: <%= cart.CartId %></h5>
+                <% } else {%>
+                    <h1>Your Shopping Cart is empty!</h1>
+                <% } %>
+                </div>
+
             </div>
         </div>
         
