@@ -55,7 +55,7 @@
         <h1 class="text-center">Shopping cart</h1>
         <div class="card-grid-container">
             <div class="cart-card">
-                <% for (let item of cart.CartItems){ %>
+                <% for (let item of dataContext.cart.CartItems){ %>
                     <h3><%= item.ArticleId %></h3>
                     <h2> <%= item.Amount %></h2>
                     <% } %>

@@ -11,8 +11,8 @@ export class CartController{
         const newItem = new CartItem(tempItem.ArticleId, tempItem.Amount);
         const helperCart = new Cart(); //Deep Clone
         cart = Object.assign(helperCart, cart);
-        cart.addItem(newItem);        
-        ctx.state.session.set("cart", cart)
+        cart.addItem(newItem);
+        await ctx.state.session.set("cart", cart);
         ctx.response.body = "Item added";
         ctx.response.status = 200;
     }

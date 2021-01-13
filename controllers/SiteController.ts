@@ -1,22 +1,18 @@
 import { RouterContext, renderFileToString} from "../deps.ts";
 import data  from "../data/data.ts"
-import { Cart } from "../models/Cart.ts";
-import cartController from "./CartController.ts";
+import helpers from "../helpers.ts"
 
 export class SiteController{
     async Index(ctx: RouterContext) {
         const articles = data.getAllArticles();
-        if (await ctx.state.session.get("cart") == null){
-            const cart = new Cart();
-            await ctx.state.session.set("cart", cart);
-            console.log(cart);
-        }
-        else{
-            const cart = await ctx.state.session.get("cart");
-        }
+        const cart = helpers.getSessionCart(ctx);
+        const dataContext = {
+            articles: articles,
+            cart: cart
+        };
         ctx.response.body = await renderFileToString(
             `${Deno.cwd()}/views/IndexView.ejs`,
-            {articles : articles}
+            {dataContext : dataContext}
         );
     }
 
@@ -30,11 +26,17 @@ export class SiteController{
     }
 
     async Cart(ctx: RouterContext){
-        const cart = await ctx.state.session.get("cart");
-        console.log(cart);
+        const cart = await helpers.getSessionCart(ctx);
+        const articles = data.getAllArticles();
+        const dataContext = {
+            articles: articles,
+            cart: cart
+        };
+        console.log(dataContext);
+        
         ctx.response.body = await renderFileToString(
             `${Deno.cwd()}/views/CartView.ejs`,
-            {cart: cart}
+            {dataContext: dataContext}
         );
     }
 }

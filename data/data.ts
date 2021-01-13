@@ -37,6 +37,7 @@ class Data{
         else {
             // TODO
             // The Article can be deleted again and again, even if it doesn't exist
+            throw "asdfklj"
             return new Deno.errors.NotFound;
         }
     }
