@@ -5,7 +5,8 @@ import helpers from "../helpers.ts"
 export class SiteController{
     async Index(ctx: RouterContext) {
         const articles = data.getAllArticles();
-        const cart = helpers.getSessionCart(ctx);
+        const cart = await helpers.getSessionCart(ctx);
+        console.log(await cart);
         const dataContext = {
             articles: articles,
             cart: cart

@@ -6,7 +6,7 @@ export class Cart{
 
     constructor() {
         this.CartItems = [];
-     }
+    }
 
     addItem(item: CartItem) {
         this.CartItems.push(item);
