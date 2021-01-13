@@ -32,17 +32,18 @@
         <ul>
             <h1 class="text-center">Shopping Cart</h1>
             <% if (dataContext.cart.CartItems) { %>
-            <% for (let cartItem of dataContext.cart.CartItems){ %>
-            <li>
-                <h3><%= cartItem.ArticleId %></h3>
-                <h3><%= cartItem.Amount %></h3>
-            </li>
-            <% } %>
+                <% for (let cartItem of dataContext.cart.CartItems){ %>
+                <li>
+                    <h3><%= cartItem.ArticleId %></h3>
+                    <h3><%= cartItem.Amount %></h3>
+                </li>
+                <% } %>
+            <% } if (dataContext.cart.CartItems === undefined || dataContext.cart.CartItems.length == 0) {%>
+                    <h1>Your Shopping Cart is empty!</h1>
             <% } %>
             <div class="input-group">
                 <div class="input-group-append">
                     <a class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub" href="/cart">View Cart</a>
-                    <a class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub" href="#xphone">Checkout</a>
                 </div>
             </div>
         </ul>

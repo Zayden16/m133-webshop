@@ -37,7 +37,7 @@ nav ul li a{
 
 /* --------------------------------------------------- Minicart */
 #minicart{
-  display: none;
+  display:none;
   margin: 0;
   padding: 1em;
   right: 0%;

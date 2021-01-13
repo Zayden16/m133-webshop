@@ -61,7 +61,7 @@
                         <h3><%= cartItem.ArticleId %></h3>
                         <h3><%= cartItem.Amount %></h3>
                     <% } %>
-                <% } else {%>
+                <% } if (dataContext.cart.CartItems === undefined || dataContext.cart.CartItems.length == 0) {%>
                     <h1>Your Shopping Cart is empty!</h1>
                 <% } %>
                 </div>
