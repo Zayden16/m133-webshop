@@ -15,65 +15,63 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/"><img id="navbar-icon" src="/media/icon.svg" alt=""></a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/#xphone">XPhone</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/#shop">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/#aboutus">About Us</a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> <i
-                                class="fas fa-shopping-cart"></i>
-
-                            Shopping Cart
-                            <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">CSS</a></li>
-                            <li><a href="#">JavaScript</a></li>
-                        </ul>
-                    </div>
-                </ul>
-            </div>
-        </div>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <img src="/media/icon.svg">
+            <li><a href="/#banner1">Home</a></li>
+            <li><a href="/#xphone">XPhone Orp</a></li>
+            <li><a href="/#shop">Shop</a></li>
+            <li><button id="cart-toggler"class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub">
+                <i class="fas fa-shopping-cart"></i>
+            </button></li>
+        </ul>
     </nav>
+    <!-- MiniCart -->
+    <div id="minicart">
+        <ul>
+            <h1 class="text-center">Shopping Cart</h1>
+            <% if (dataContext.cart.CartItems) { %>
+                <% for (let cartItem of dataContext.cart.CartItems){ %>
+                <li>
+                    <h3><%= cartItem.ArticleId %></h3>
+                    <h3><%= cartItem.Amount %></h3>
+                </li>
+                <% } %>
+            <% } if (dataContext.cart.CartItems === undefined || dataContext.cart.CartItems.length == 0) {%>
+                    <h1>Your Shopping Cart is empty!</h1>
+            <% } %>
+            <div class="input-group">
+                <div class="input-group-append">
+                    <a class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub" href="/cart">View Cart</a>
+                </div>
+            </div>
+        </ul>
+    </div>
     <!-- Article Card -->
     <div class="article-card-container">
         <div class="article-card">
             <div class="article-picture">
-                <img class="article-card-picture" src="data:image/png;base64, <%= article.ArticlePicture %>">
+                <img class="article-card-picture" src="data:image/png;base64, <%= dataContext.article.ArticlePicture %>">
             </div>
             <div class="article-details">
-                <h1> <%= article.ArticleTitle %> </h1>
-                <p> <%= article.ArticleDescription %> </p>
-                <p class="price"> CHF <%= article.ArticlePrice %> </p>
+                <h1> <%= dataContext.article.ArticleTitle %> </h1>
+                <p> <%= dataContext.article.ArticleDescription %> </p>
+                <p class="price"> CHF <%= dataContext.article.ArticlePrice %> </p>
                 <div class="article-input-group mb-3">
                     <span onclick="decrementArticleCounter()" class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"> <i
                             class="fas fa-minus"></i>
                     </span>
-                    <input id="article-counter-<%=article.ArticleId%>" class="article-counter" type="number" min="1" value="1" />
+                    <input id="article-counter-<%=dataContext.article.ArticleId%>" class="article-counter" type="number" min="1" value="1" />
                     <span class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
                         onclick="incrementArticleCounter()"> <i class="fas fa-plus"></i>
                     </span>
                     <span class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
-                        onclick=addToCart('<%=article.ArticleId%>')> <i class="fas fa-cart-plus"></i>
+                        onclick=addToCart('<%=dataContext.article.ArticleId%>')> <i class="fas fa-cart-plus"></i>
                     </span>
                     </a>
                 </div>
-                <h6 class="text-muted text-uppercase"> <%= article.ArticleId %></h6>
+                <h6 class="text-muted text-uppercase"> <%= dataContext.article.ArticleId %></h6>
             </div>
         </div>
     </div>

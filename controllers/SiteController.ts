@@ -20,9 +20,17 @@ export class SiteController{
     async ArticleDetail(ctx: RouterContext) {
         const artId: string = ctx.params.id!;
         const article = data.getArticle(artId);
+        const articles = data.getAllArticles();
+        const cart = await helpers.getSessionCart(ctx);
+        console.log(await cart);
+        const dataContext = {
+            article : article,
+            articles: articles,
+            cart: cart
+        };
         ctx.response.body = await renderFileToString(
             `${Deno.cwd()}/views/ArticleDetailView.ejs`,
-            {article: article}
+            {dataContext: dataContext}
         );
     }
 
