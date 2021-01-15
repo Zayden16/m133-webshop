@@ -22,24 +22,24 @@
             <li><a href="/#banner1">Home</a></li>
             <li><a href="/#xphone">XPhone Orp</a></li>
             <li><a href="/#shop">Shop</a></li>
-            <li><button id="cart-toggler"class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub">
-                <i class="fas fa-shopping-cart"></i>
-            </button></li>
+            <li><button id="cart-toggler" class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub">
+                    <i class="fas fa-shopping-cart"></i>
+                </button></li>
         </ul>
     </nav>
     <!-- MiniCart -->
     <div id="minicart">
         <ul>
             <h1 class="text-center">Shopping Cart</h1>
-            <% if (dataContext.cart.CartItems) { %>
-                <% for (let cartItem of dataContext.cart.CartItems){ %>
-                <li>
-                    <h3><%= cartItem.ArticleId %></h3>
-                    <h3><%= cartItem.Amount %></h3>
-                </li>
-                <% } %>
-            <% } if (dataContext.cart.CartItems === undefined || dataContext.cart.CartItems.length == 0) {%>
-                    <h1>Your Shopping Cart is empty!</h1>
+            <% if (dataContext.cartMatrix) { %>
+            <% for (let matrixItem of dataContext.cartMatrix){ %>
+            <li>
+                <h3><%= matrixItem.ArticleId %></h3>
+                <h3><%= matrixItem.Amount %> </h3>
+            </li>
+            <% } %>
+            <% } if (dataContext.cartMatrix === undefined || dataContext.cartMatrix.length == 0) {%>
+            <h1>Your Shopping Cart is empty!</h1>
             <% } %>
             <div class="input-group">
                 <div class="input-group-append">
@@ -53,22 +53,36 @@
         <h1 class="text-center">Shopping cart</h1>
         <div class="card-grid-container">
             <div class="cart-card">
-                <div class="cart-item">
-                <% if (dataContext.cart.CartItems) { %>
-                    <% for (let cartItem of dataContext.cart.CartItems){ %>
-                        <h3><%= cartItem.ArticleId %></h3>
-                        <h3><%= cartItem.Amount %></h3>
+                <% if (dataContext.cartMatrix) { %>
+                    <% for (let matrixItem of dataContext.cartMatrix){ %>
+                        <div class="cart-item">
+                            <div class="cart-item-info">
+                                <img class="cart-item-thumb" src="data:image/png;base64, <%= matrixItem.ArticlePicture %>">
+                                <h3 class="cart-item-title"><%= matrixItem.ArticleTitle %></h3>
+                                <h6 class="cart-item-Id"><%= matrixItem.ArticleId %></h6>
+                                <h3 class="cart-item-amount"><%= matrixItem.Amount %></h3>
+                            </div>
+                            <div class="article-input-group mb-3">
+                                <span id="decrementor-<%=matrixItem.ArticleId%>" class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"> <i
+                                        class="fas fa-minus"></i>
+                                </span>
+                                <input id="article-counter-<%=matrixItem.ArticleId%>" class="article-counter" type="number" min="1" value="1" />
+                                <span class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
+                                    id="incrementor-<%= matrixItem.ArticleId %>"> <i class="fas fa-plus"></i>
+                                </span>
+                                </a>
+                            </div>
+                        </div>
                     <% } %>
-                <% } if (dataContext.cart.CartItems === undefined || dataContext.cart.CartItems.length == 0) {%>
-                    <h1>Your Shopping Cart is empty!</h1>
+                <% } if (dataContext.cartMatrix === undefined || dataContext.cartMatrix.length == 0) {%>
+                            <h1>Your Shopping Cart is empty!</h1>
                 <% } %>
-                </div>
-
             </div>
         </div>
-        
-            
-            
+    </div>
+
+
+
         </h1>
     </div>
     <!-- Shopping Cart End -->
@@ -98,5 +112,6 @@
     <!-- About Us End -->
 
     <script src="/js/app.js"></script>
-    </body>
+</body>
+
 </html>

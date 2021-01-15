@@ -59,16 +59,16 @@
                 <p> <%= dataContext.article.ArticleDescription %> </p>
                 <p class="price"> CHF <%= dataContext.article.ArticlePrice %> </p>
                 <div class="article-input-group mb-3">
-                    <span id="card-decrementor-<%=dataContext.article.ArticleId%>" class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"> <i
+                    <span id="decrementor-<%=dataContext.article.ArticleId%>" class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"> <i
                             class="fas fa-minus"></i>
                     </span>
-                    <input id="card-article-counter-<%=dataContext.article.ArticleId%>" class="article-counter" type="number" min="1" value="1" />
+                    <input id="article-counter-<%=dataContext.article.ArticleId%>" class="article-counter" type="number" min="1" value="1" />
                     <span class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
-                        id="card-incrementor-<%= dataContext.article.ArticleId %>"> <i class="fas fa-plus"></i>
+                        id="incrementor-<%= dataContext.article.ArticleId %>"> <i class="fas fa-plus"></i>
                     </span>
-                    <span class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
-                        id="addToCart"> <i class="fas fa-cart-plus"></i>
-                    </span>
+                    <button class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
+                        id="addToCart" value="<%= dataContext.article.ArticleId %>"> <i class="fas fa-cart-plus"></i>
+                    </button>
                     </a>
                 </div>
                 <h6 class="text-muted text-uppercase" id="artId"><%= dataContext.article.ArticleId %></h6>

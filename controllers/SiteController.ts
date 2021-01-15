@@ -1,6 +1,7 @@
-import { RouterContext, renderFileToString} from "../deps.ts";
+import { RouterContext, renderFileToString, Article} from "../deps.ts";
 import data  from "../data/data.ts"
 import helpers from "../helpers.ts"
+import { CartItem } from "../models/CartItem.ts";
 
 export class SiteController{
     async Index(ctx: RouterContext) {
@@ -37,12 +38,33 @@ export class SiteController{
     async Cart(ctx: RouterContext){
         const cart = await helpers.getSessionCart(ctx);
         const articles = data.getAllArticles();
-        const dataContext = {
-            articles: articles,
-            cart: cart
-        };
-        console.log(dataContext);
+        // const actualCart:Article[] = [];
+        // cart.CartItems.forEach((element: CartItem) => {
+        //     articles.forEach((article: Article)=>{
+        //         if (article.ArticleId === element.ArticleId) {
+        //             actualCart.push(article);
+        //         }
+        //     })
+        // });
+        // console.log(actualCart);
         
+        // deno-lint-ignore no-explicit-any
+        const cartMatrix: any = []
+        let matrixItem;
+
+        articles.forEach((art: Article) => {
+            cart.CartItems.forEach((cartItem: CartItem) => {
+                if (art.ArticleId == cartItem.ArticleId) {
+                    matrixItem = Object.assign(art, cartItem);
+                    cartMatrix.push(matrixItem);
+                 }
+            });
+        });
+        
+        const dataContext = {
+            cartMatrix
+        };
+
         ctx.response.body = await renderFileToString(
             `${Deno.cwd()}/views/CartView.ejs`,
             {dataContext: dataContext}

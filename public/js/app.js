@@ -4,7 +4,7 @@ class CartItem {
         this.Amount = amount;
     }
 }
-const artId1 = document.getElementById("artId").innerHTML;
+const artId1 = document.getElementById("addToCart").value;
 let toggler = document.getElementById("cart-toggler");
 let minicart = document.getElementById("minicart");
 toggler.addEventListener("click", function() {
@@ -18,16 +18,16 @@ let addToCartBtn = document.getElementById("addToCart");
 addToCartBtn.addEventListener("click", function() {
     addToCart();
 });
-let incrementBtn = document.getElementById("card-incrementor-" + artId1);
+let incrementBtn = document.getElementById("incrementor-" + artId1);
 incrementBtn.addEventListener("click", function() {
     incrementArticleCounter();
 });
-let decrementBtn = document.getElementById("card-decrementor-" + artId1);
+let decrementBtn = document.getElementById("decrementor-" + artId1);
 decrementBtn.addEventListener("click", function() {
     decrementArticleCounter();
 });
 function addToCart() {
-    const amount1 = document.getElementById("card-article-counter-" + artId1).value;
+    const amount1 = document.getElementById("article-counter-" + artId1).value;
     const cartItem = new CartItem(artId1, amount1);
     fetch("/api/cart/addItem", {
         method: 'POST',
@@ -37,15 +37,7 @@ function addToCart() {
     window.location.reload();
 }
 function incrementArticleCounter() {
-    let counter = document.getElementById("card-article-counter-" + artId1);
+    let counter = document.getElementById("article-counter-" + artId1);
     let newVal = counter.value++;
-    return newVal;
-}
-function decrementArticleCounter() {
-    let counter = document.getElementById("card-article-counter-" + artId1);
-    if (counter.value < 2) {
-        return 1;
-    }
-    let newVal = counter.value--;
     return newVal;
 }
