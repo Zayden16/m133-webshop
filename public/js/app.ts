@@ -1,5 +1,7 @@
 // deno-lint-ignore-file
 
+import { CartItem } from "../../models/CartItem.ts";
+
 const artId = document.getElementById("artId").innerHTML;
 
 let toggler = document.getElementById("cart-toggler");
