@@ -10,6 +10,11 @@ export class Cart{
 
     addItem(item: CartItem) {
         this.CartItems.push(item);
-        console.log(this);
+    }
+    removeItem(item:CartItem){
+        const filteredArray = this.CartItems.filter(function(element){
+            return element.ArticleId !== item.ArticleId;
+        });
+        this.CartItems = filteredArray;
     }
 }

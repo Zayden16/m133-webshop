@@ -44,6 +44,7 @@ nav ul li a{
   position: absolute;
   background-color: #171717;
   color: white;
+  z-index: 10;
 }
 
 .minicart ul {
