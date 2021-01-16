@@ -1,15 +1,17 @@
 // deno-lint-ignore-file
-import { CartItem } from "../../models/CartItem.ts";
+import {
+    CartItem
+} from "../../models/CartItem.ts";
 
 if (document.title == "Webshop Cart") {
 
-    let togglerAmount:HTMLElement = document.getElementById("lblCartCount");
-        fetch("/api/getCartTotal").then(function(response) {
-            return response.text().then(function(text) {
-                togglerAmount.innerHTML = text;
-            });
-          });
-      
+    let togglerAmount: HTMLElement = document.getElementById("lblCartCount");
+    fetch("/api/getCartTotal").then(function (response) {
+        return response.text().then(function (text) {
+            togglerAmount.innerHTML = text;
+        });
+    });
+
     $('.incrementor').on('click', function (e) {
         e.preventDefault();
         var $this = $(this);
@@ -17,7 +19,7 @@ if (document.title == "Webshop Cart") {
         // var articleIdHelper = $this.closest('div').find('h6');
         // var artId = articleIdHelper.innerHTML;
         // console.log(artId);
-        
+
         var value = parseInt($input.val());
         if (value < 100) {
             value = value + 1;
@@ -43,7 +45,7 @@ if (document.title == "Webshop Cart") {
 
 
     function addToCart(artId) {
-        const counter = <HTMLInputElement>document.getElementById("article-counter-" + artId);
+        const counter = < HTMLInputElement > document.getElementById("article-counter-" + artId);
         var amount = parseInt(counter.value) + 1;
         const cartItem = new CartItem(artId, amount);
         fetch("/api/cart/addItem", {
@@ -51,12 +53,12 @@ if (document.title == "Webshop Cart") {
             mode: 'no-cors',
             body: JSON.stringify(cartItem)
         });
-        let togglerAmount:HTMLElement = document.getElementById("lblCartCount");
-        fetch("/api/getCartTotal").then(function(response) {
-            return response.text().then(function(text) {
+        let togglerAmount: HTMLElement = document.getElementById("lblCartCount");
+        fetch("/api/getCartTotal").then(function (response) {
+            return response.text().then(function (text) {
                 togglerAmount.innerHTML = text;
             });
-          });
+        });
     }
 
 }
@@ -72,13 +74,13 @@ if (document.title == "Webshop Home") {
             minicart.style.display = "none";
         }
     });
-    
-    let togglerAmount:HTMLElement = document.getElementById("lblCartCount");    
-    fetch("/api/getCartTotal").then(function(response) {
-        return response.text().then(function(text) {
+
+    let togglerAmount: HTMLElement = document.getElementById("lblCartCount");
+    fetch("/api/getCartTotal").then(function (response) {
+        return response.text().then(function (text) {
             togglerAmount.innerHTML = text;
         });
-      });
+    });
 
 }
 
@@ -94,12 +96,12 @@ if (document.title == "Webshop Article") {
         }
     });
 
-    let togglerAmount:HTMLElement = document.getElementById("lblCartCount");    
-    fetch("/api/getCartTotal").then(function(response) {
-        return response.text().then(function(text) {
+    let togglerAmount: HTMLElement = document.getElementById("lblCartCount");
+    fetch("/api/getCartTotal").then(function (response) {
+        return response.text().then(function (text) {
             togglerAmount.innerHTML = text;
         });
-      });
+    });
 
     const artId = document.getElementById("addToCart").value;
     let addToCartBtn = document.getElementById("addToCart");
@@ -155,17 +157,17 @@ if (document.title == "Webshop Checkout") {
         }
     });
 
-    let togglerAmount:HTMLElement = document.getElementById("lblCartCount");    
-    fetch("/api/getCartTotal").then(function(response) {
-        return response.text().then(function(text) {
+    let togglerAmount: HTMLElement = document.getElementById("lblCartCount");
+    fetch("/api/getCartTotal").then(function (response) {
+        return response.text().then(function (text) {
             togglerAmount.innerHTML = text;
         });
-      });
+    });
 
     let checkoutBtn = document.getElementById("checkoutBtn");
     checkoutBtn.addEventListener("click", function () {
         checkout();
-});
+    });
 
     async function checkout() {
         let name = document.getElementById("name");
@@ -196,7 +198,7 @@ if (document.title == "Webshop Checkout") {
             }, 2000);
         }
     }
-    }
+}
 
 function addToCart(artId) {
     const amount = parseInt(document.getElementById("article-counter-" + artId).value);
@@ -206,10 +208,10 @@ function addToCart(artId) {
         mode: 'no-cors',
         body: JSON.stringify(cartItem)
     });
-    let togglerAmount:HTMLElement = document.getElementById("lblCartCount");    
-    fetch("/api/getCartTotal").then(function(response) {
-        return response.text().then(function(text) {
+    let togglerAmount: HTMLElement = document.getElementById("lblCartCount");
+    fetch("/api/getCartTotal").then(function (response) {
+        return response.text().then(function (text) {
             togglerAmount.innerHTML = text;
         });
-      });
+    });
 }

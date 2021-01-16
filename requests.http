@@ -4,7 +4,6 @@
 GET /api/getallarticles HTTP/1.1
 Host: localhost:8000
 
-
 ### Get Article
 GET /api/article/cb242b9e-0bed-44fb-a51c-a9d1fe346e6c HTTP/1.1
 Host: localhost:8000
@@ -23,3 +22,29 @@ Content-Type: json
 ### Delete Article by ID
 DELETE /api/deletearticle/650b566b-4013-4953-b7f9-d4b5ae086259 HTTP/1.1
 Host: localhost:8000
+
+### Get Cart
+GET /api/cart HTTP/1.1
+Host: localhost:8000
+Cookie: sid=c728003f-de75-4974-b77b-c0ea67743d93
+
+### Add to Cart
+POST /api/cart/addItem?=null HTTP/1.1
+Host: localhost:8000
+Cookie: sid=9b31af28-9fa6-4db6-a5c9-20d3d2f9409f
+Content-Type: application/json
+Content-Length: 82
+
+{
+    "ArticleId": "cb242b9e-0bed-44fb-a51c-a9d1fe346e6c",
+    "Amount" : 2
+}
+
+### Checkout
+POST /api/checkout HTTP/1.1
+Host: localhost:8000
+
+### Get Cart Total
+GET /api/getCartTotal HTTP/1.1
+Host: localhost:8000
+cookie: sid=277e8a56-7ddd-4415-a16a-327298b50e6e
