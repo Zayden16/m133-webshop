@@ -13,6 +13,21 @@ export class CartController{
         const newItem = new CartItem(tempItem.ArticleId, tempItem.Amount);
         const helperCart = new Cart(); //Deep Clone
         cart = Object.assign(helperCart, cart);
+
+        // WIP
+        // cart.CartItems.forEach((element: CartItem) => {
+        //     if (element.ArticleId == newItem.ArticleId) {
+        //         if (newItem.Amount == 0) {
+        //             cart.removeItem(element);
+        //         } else {   
+        //         const amount: number = element.Amount + newItem.Amount;
+        //         element.Amount = amount;
+        //         cart.removeItem(element);
+        //         cart.addItem(newItem);
+        //         }
+        //     }
+        // });
+
         cart.CartItems.forEach((element: CartItem) => {
             if (element.ArticleId == newItem.ArticleId) {
                 const amount: number = element.Amount + newItem.Amount;

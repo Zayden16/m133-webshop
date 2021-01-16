@@ -7,7 +7,6 @@ export class SiteController{
     async Index(ctx: RouterContext) {
         const articles = data.getAllArticles();
         const cart = await helpers.getSessionCart(ctx);
-        console.log(await cart);
         const dataContext = {
             articles: articles,
             cart: cart
@@ -22,7 +21,6 @@ export class SiteController{
         const article = data.getArticle(artId);
         const articles = data.getAllArticles();
         const cart = await helpers.getSessionCart(ctx);
-        console.log(await cart);
         const dataContext = {
             article : article,
             articles: articles,
@@ -37,16 +35,6 @@ export class SiteController{
     async Cart(ctx: RouterContext){
         const cart = await helpers.getSessionCart(ctx);
         const articles = data.getAllArticles();
-        // const actualCart:Article[] = [];
-        // cart.CartItems.forEach((element: CartItem) => {
-        //     articles.forEach((article: Article)=>{
-        //         if (article.ArticleId === element.ArticleId) {
-        //             actualCart.push(article);
-        //         }
-        //     })
-        // });
-        // console.log(actualCart);
-        
         // deno-lint-ignore no-explicit-any
         const cartMatrix: any = []
         let matrixItem;

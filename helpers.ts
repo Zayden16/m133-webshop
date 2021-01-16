@@ -6,7 +6,6 @@ class Helpers {
         if (await ctx.state.session.get("cart") == undefined){
             const cart = new Cart();
             await ctx.state.session.set("cart", cart);
-            console.log("A new cart was made! \n" + cart);
             return cart;
         }
         else{

@@ -1,44 +1,46 @@
 // deno-lint-ignore-file
-import { CartItem } from "../../models/CartItem.ts";
+import {
+    CartItem
+} from "../../models/CartItem.ts";
 
-const artId = document.getElementById("addToCart").value;
+if (document.title != "Cart") {
+    const artId = document.getElementById("addToCart").value;
+    let addToCartBtn = document.getElementById("addToCart");
+    addToCartBtn.addEventListener("click", function () {
+        addToCart(artId);
+    });
+
+    function addToCart(artId) {
+        const amount = parseInt(document.getElementById("article-counter-" + artId).value);
+        const cartItem = new CartItem(artId, amount);
+        fetch("/api/cart/addItem", {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(cartItem)
+        });
+        window.location.reload()
+    }
+}
 
 let toggler = document.getElementById("cart-toggler");
 let minicart = document.getElementById("minicart");
 
-toggler.addEventListener("click", function() {
+toggler.addEventListener("click", function () {
     if (minicart.style.display == "none" || minicart.style.display == "") {
         minicart.style.display = "flex";
-    }
-    else {
+    } else {
         minicart.style.display = "none";
     }
 });
 
 
-let addToCartBtn = document.getElementById("addToCart");
-addToCartBtn.addEventListener("click", function(){
-    addToCart();
-});
+// function incrementArticleCounter() {
+//     let counter = document.getElementById("article-counter-" + artId);
+//     let newVal = counter.value++;
+//     return newVal;
+// }
 
-function addToCart() {
-    const amount = document.getElementById("article-counter-" + artId).value;
-    const cartItem = new CartItem(artId, amount);
-    fetch("/api/cart/addItem", {
-        method: 'POST',
-        mode: 'no-cors',
-        body: JSON.stringify(cartItem)
-     });
-     window.location.reload()
-}
-
-function incrementArticleCounter() {
-    let counter = document.getElementById("article-counter-" + artId);
-    let newVal = counter.value++;
-    return newVal;
-}
-
-$('.decrementor').on('click', function(e) {
+$('.decrementor').on('click', function (e) {
     e.preventDefault();
     var $this = $(this);
     var $input = $this.closest('div').find('input');
@@ -48,12 +50,10 @@ $('.decrementor').on('click', function(e) {
     } else {
         value = 0;
     }
- 
-  $input.val(value);
- 
+    $input.val(value);
 });
 
-$('.incrementor').on('click', function(e) {
+$('.incrementor').on('click', function (e) {
     e.preventDefault();
     var $this = $(this);
     var $input = $this.closest('div').find('input');
@@ -61,8 +61,7 @@ $('.incrementor').on('click', function(e) {
     if (value < 100) {
         value = value + 1;
     } else {
-        value =100;
+        value = 100;
     }
- 
     $input.val(value);
 });

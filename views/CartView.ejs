@@ -10,8 +10,9 @@
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="/stylesheets/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/762c79917a.js" crossorigin="anonymous"></script>
-    <title>Webshop</title>
+    <title>Cart</title>
 </head>
 
 <body>
@@ -63,11 +64,11 @@
                                 <h3 class="cart-item-amount"><%= matrixItem.Amount %></h3>
                             </div>
                             <div class="article-input-group mb-3">
-                                <span id="decrementor-<%=matrixItem.ArticleId%>" class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"> <i
+                                <span id="decrementor-<%=matrixItem.ArticleId%>" class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub decrementor"> <i
                                         class="fas fa-minus"></i>
                                 </span>
                                 <input id="article-counter-<%=matrixItem.ArticleId%>" class="article-counter" type="number" min="1" value="1" />
-                                <span class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
+                                <span class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub incrementor"
                                     id="incrementor-<%= matrixItem.ArticleId %>"> <i class="fas fa-plus"></i>
                                 </span>
                                 </a>
@@ -80,8 +81,6 @@
             </div>
         </div>
     </div>
-
-
 
         </h1>
     </div>

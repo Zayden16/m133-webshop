@@ -4,7 +4,23 @@ class CartItem {
         this.Amount = amount;
     }
 }
-const artId1 = document.getElementById("addToCart").value;
+if (document.title != "Cart") {
+    const artId1 = document.getElementById("addToCart").value;
+    let addToCartBtn = document.getElementById("addToCart");
+    addToCartBtn.addEventListener("click", function() {
+        addToCart(artId1);
+    });
+    function addToCart(artId2) {
+        const amount1 = parseInt(document.getElementById("article-counter-" + artId2).value);
+        const cartItem = new CartItem(artId2, amount1);
+        fetch("/api/cart/addItem", {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(cartItem)
+        });
+        window.location.reload();
+    }
+}
 let toggler = document.getElementById("cart-toggler");
 let minicart = document.getElementById("minicart");
 toggler.addEventListener("click", function() {
@@ -14,20 +30,6 @@ toggler.addEventListener("click", function() {
         minicart.style.display = "none";
     }
 });
-let addToCartBtn = document.getElementById("addToCart");
-addToCartBtn.addEventListener("click", function() {
-    addToCart();
-});
-function addToCart() {
-    const amount1 = document.getElementById("article-counter-" + artId1).value;
-    const cartItem = new CartItem(artId1, amount1);
-    fetch("/api/cart/addItem", {
-        method: 'POST',
-        mode: 'no-cors',
-        body: JSON.stringify(cartItem)
-    });
-    window.location.reload();
-}
 $('.decrementor').on('click', function(e) {
     e.preventDefault();
     var $this = $(this);
