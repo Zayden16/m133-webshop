@@ -18,14 +18,6 @@ let addToCartBtn = document.getElementById("addToCart");
 addToCartBtn.addEventListener("click", function() {
     addToCart();
 });
-let incrementBtn = document.getElementById("incrementor-" + artId1);
-incrementBtn.addEventListener("click", function() {
-    incrementArticleCounter();
-});
-let decrementBtn = document.getElementById("decrementor-" + artId1);
-decrementBtn.addEventListener("click", function() {
-    decrementArticleCounter();
-});
 function addToCart() {
     const amount1 = document.getElementById("article-counter-" + artId1).value;
     const cartItem = new CartItem(artId1, amount1);
@@ -36,8 +28,27 @@ function addToCart() {
     });
     window.location.reload();
 }
-function incrementArticleCounter() {
-    let counter = document.getElementById("article-counter-" + artId1);
-    let newVal = counter.value++;
-    return newVal;
-}
+$('.decrementor').on('click', function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    var $input = $this.closest('div').find('input');
+    var value = parseInt($input.val());
+    if (value > 1) {
+        value = value - 1;
+    } else {
+        value = 0;
+    }
+    $input.val(value);
+});
+$('.incrementor').on('click', function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    var $input = $this.closest('div').find('input');
+    var value = parseInt($input.val());
+    if (value < 100) {
+        value = value + 1;
+    } else {
+        value = 100;
+    }
+    $input.val(value);
+});

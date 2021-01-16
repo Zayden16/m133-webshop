@@ -10,6 +10,7 @@
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="/stylesheets/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/762c79917a.js" crossorigin="anonymous"></script>
     <title>Webshop</title>
 </head>
@@ -59,13 +60,12 @@
                 <p> <%= dataContext.article.ArticleDescription %> </p>
                 <p class="price"> CHF <%= dataContext.article.ArticlePrice %> </p>
                 <div class="article-input-group mb-3">
-                    <span id="decrementor-<%=dataContext.article.ArticleId%>" class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"> <i
+                    <button class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub decrementor"> <i
                             class="fas fa-minus"></i>
-                    </span>
+                    </button>
                     <input id="article-counter-<%=dataContext.article.ArticleId%>" class="article-counter" type="number" min="1" value="1" />
-                    <span class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
-                        id="incrementor-<%= dataContext.article.ArticleId %>"> <i class="fas fa-plus"></i>
-                    </span>
+                    <button class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub incrementor"> <i class="fas fa-plus"></i>
+                    </button>
                     <button class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
                         id="addToCart" value="<%= dataContext.article.ArticleId %>"> <i class="fas fa-cart-plus"></i>
                     </button>

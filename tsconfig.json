@@ -4,6 +4,7 @@
         "types": [],
         "target": "es2016",
         "jsx": "preserve",
+        "lib": ["es6", "dom"],
         "strictFunctionTypes": true,
         "strictNullChecks": false,
         "sourceMap": true

@@ -17,7 +17,6 @@ export class SiteController{
             {dataContext : dataContext}
         );
     }
-
     async ArticleDetail(ctx: RouterContext) {
         const artId: string = ctx.params.id!;
         const article = data.getArticle(artId);
