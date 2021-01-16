@@ -2,7 +2,7 @@
 
 
 ## :information_source: General info
-This project is part of the M113 in BBZW Sursee. We were tasked to build a WEbshop with Sessionhandling using what we learned in the course.
+This project is part of the M113 in BBZW Sursee. We were tasked to build a Webshop with Sessionhandling using what we learned in the course.
 
 ## :flight_departure: Setup
 To run this project, clone the repository & install deno from [here](https://deno.land/manual/getting_started/installation)
