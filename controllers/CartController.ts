@@ -18,15 +18,9 @@ export class CartController{
                 const amount: number = element.Amount + newItem.Amount;
                 element.Amount = amount;
                 cart.removeItem(element);
-                if (element.Amount != 0) {
-                    cart.addItem(newItem);
-                }
-            }
-            else{
-                cart.addItem(newItem);
             }
         });
-        
+        cart.addItem(newItem);
         await ctx.state.session.set("cart", cart);
         ctx.response.body = "Item added";
         ctx.response.status = 200;
