@@ -57,6 +57,17 @@ export class SiteController{
             {dataContext: dataContext}
         );
     }
+
+    async Checkout(ctx: RouterContext){
+        const cart = await helpers.getSessionCart(ctx);
+        const dataContext = {
+            cart: cart
+        };  
+        ctx.response.body = await renderFileToString(
+            `${Deno.cwd()}/views/CheckoutView.ejs`,
+            {dataContext: dataContext}
+        );
+    }
 }
 const siteController = new SiteController();
 export default siteController;

@@ -1,4 +1,4 @@
-import { RouterContext } from "./deps.ts"
+import { RouterContext, isJSON } from "./deps.ts"
 import { Cart } from "./models/Cart.ts"
 
 class Helpers {
@@ -15,6 +15,14 @@ class Helpers {
     swissCommercialRounding(value: number) {
         let roundedValue = (Math.ceil(value * 20 - 0.5) / 20).toFixed(2);
         return roundedValue;
+    }
+    
+    validate(json: JSON){
+        if(isJSON(json)){
+            return true;
+        } else{
+            throw "Recieved file was not a JSON"
+        }
     }
 }
 

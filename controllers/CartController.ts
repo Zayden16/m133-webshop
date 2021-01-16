@@ -5,6 +5,12 @@ import helpers from "../helpers.ts"
 
 
 export class CartController{
+    async getCart(ctx: RouterContext){
+        let cart = await helpers.getSessionCart(ctx);
+        ctx.response.body = JSON.stringify(cart);
+        ctx.response.status = 200;
+    }
+
     async addToCart(ctx: RouterContext){
         let cart = await helpers.getSessionCart(ctx);
         const { value } = ctx.request.body({type: "json"});

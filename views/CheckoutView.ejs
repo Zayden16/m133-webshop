@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/stylesheets/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/762c79917a.js" crossorigin="anonymous"></script>
-    <title>Webshop Article</title>
+    <title>Webshop Checkout</title>
 </head>
 
 <body>
@@ -23,26 +23,25 @@
             <li><a href="/#banner1">Home</a></li>
             <li><a href="/#xphone">XPhone Orp</a></li>
             <li><a href="/#shop">Shop</a></li>
-            <li><button id="cart-toggler"class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub">
-                <i class="fas fa-shopping-cart"></i>
-                <span class='badge badge-warning' id='lblCartCount'>CHF <%=dataContext.cart.length%></span>
-            </button></li>
+            <li><button id="cart-toggler" class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class='badge badge-warning' id='lblCartCount'>CHF <%=dataContext.cart.length%></span>
+                </button></li>
         </ul>
     </nav>
-    <div id="snackbar">Item added to Cart!</div>
     <!-- MiniCart -->
     <div id="minicart">
         <ul>
-            <h1 class="text-center">Shopping Cart</h1>  
+            <h1 class="text-center">Shopping Cart</h1>
             <% if (dataContext.cart.CartItems) { %>
-                <% for (let cartItem of dataContext.cart.CartItems){ %>
-                <li>
-                    <h3><%= cartItem.ArticleId %></h3>
-                    <h3><%= cartItem.Amount %></h3>
-                </li>
-                <% } %>
+            <% for (let cartItem of dataContext.cart.CartItems){ %>
+            <li>
+                <h3><%= cartItem.ArticleId %></h3>
+                <h3><%= cartItem.Amount %></h3>
+            </li>
+            <% } %>
             <% } if (dataContext.cart.CartItems === undefined || dataContext.cart.CartItems.length == 0) {%>
-                    <h1>Your Shopping Cart is empty!</h1>
+            <h1>Your Shopping Cart is empty!</h1>
             <% } %>
             <div class="input-group">
                 <div class="input-group-append">
@@ -51,33 +50,34 @@
             </div>
         </ul>
     </div>
-    <!-- Article Card -->
-    <div class="article-card-container">
-        <div class="article-card">
-            <div class="article-picture">
-                <img class="article-card-picture" src="data:image/png;base64, <%= dataContext.article.ArticlePicture %>">
-            </div>
-            <div class="article-details">
-                <h1> <%= dataContext.article.ArticleTitle %> </h1>
-                <p> <%= dataContext.article.ArticleDescription %> </p>
-                <p class="price"> CHF <%= dataContext.article.ArticlePrice %> </p>
-                <div class="article-input-group mb-3">
-                    <button class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub decrementor"> <i
-                            class="fas fa-minus"></i>
-                    </button>
-                    <input id="article-counter-<%=dataContext.article.ArticleId%>" class="article-counter" type="number" min="1" value="1" />
-                    <button class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub incrementor"> <i class="fas fa-plus"></i>
-                    </button>
-                    <button class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub"
-                        id="addToCart" value="<%= dataContext.article.ArticleId %>"> <i class="fas fa-cart-plus"></i>
-                    </button>
-                    </a>
+    <!-- Checkout Card -->
+    <div class="bg-light">
+        <h1 class="text-center">Checkout</h1>
+        <div class="card-grid-container">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter Full Name">
                 </div>
-                <h6 class="text-muted text-uppercase" id="artId"><%= dataContext.article.ArticleId %></h6>
-            </div>
+                <div class="form-group">
+                    <label for="street">Street</label>
+                    <input type="text" class="form-control" id="street" placeholder="Street">
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" placeholder="City">
+                </div>
+                <div class="form-group">
+                    <label for="zip">ZIP</label>
+                    <input type="text" class="form-control" id="zip" placeholder="ZIP">
+                    <small>We promise not to share your Data with anyone*</small>
+                </div>
+                <!-- <button type="submit" class="btn btn-primary">Checkout</button> in case of Production usage -->
+                <span id="checkoutBtn" class="btn btn-primary">Checkout</span> <!-- temp usage -->
+            </form>
         </div>
     </div>
-    <!-- Article Card End -->
+    <div id="snackbar">Checkout recieved!</div>
     <!-- About Us Start -->
     <a id="aboutus" />
     <div class="mt-5 pt-5 pb-5 footer bg-dark text-white">
@@ -96,7 +96,7 @@
             </div>
             <div class="row mt-5">
                 <div class="col copyright">
-                    <p class=""><small class="text-white-50">© 2020. All Rights Reserved.</small></p>
+                    <p class=""><small class="text-white-50">© 2020. All Rights Reserved. * = except we will</small></p>
                 </div>
             </div>
         </div>
@@ -104,5 +104,6 @@
     <!-- About Us End -->
 
     <script src="/js/app.js"></script>
-    </body>
+</body>
+
 </html>
