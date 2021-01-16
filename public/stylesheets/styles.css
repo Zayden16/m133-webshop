@@ -260,6 +260,11 @@ h6{
   width: 100px;
 }
 
+.total-amt{
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+
 .checkout{
   display: flex;
 }

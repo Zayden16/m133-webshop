@@ -25,7 +25,7 @@
             <li><a href="/#shop">Shop</a></li>
             <li><button id="cart-toggler" class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub">
                     <i class="fas fa-shopping-cart"></i>
-                    <span class='badge badge-warning' id='lblCartCount'>CHF <%=dataContext.cart.length%></span>
+                    <span class='badge badge-warning' id='lblCartCount'>CHF </span>
                 </button>
             </li>
         </ul>
@@ -58,23 +58,23 @@
             <form>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter Full Name">
+                    <input required type="text" class="form-control" id="name" placeholder="Enter Full Name">
                 </div>
                 <div class="form-group">
                     <label for="street">Street</label>
-                    <input type="text" class="form-control" id="street" placeholder="Street">
+                    <input required type="text" class="form-control" id="street" placeholder="Street">
                 </div>
                 <div class="form-group">
                     <label for="city">City</label>
-                    <input type="text" class="form-control" id="city" placeholder="City">
+                    <input required type="text" class="form-control" id="city" placeholder="City">
                 </div>
                 <div class="form-group">
                     <label for="zip">ZIP</label>
-                    <input type="text" class="form-control" id="zip" placeholder="ZIP">
+                    <input required type="text" class="form-control" id="zip" placeholder="ZIP">
                     <small>We promise not to share your Data with anyone*</small>
                 </div>
                 <!-- <button type="submit" class="btn btn-primary">Checkout</button> in case of Production usage -->
-                <span id="checkoutBtn" class="btn btn-primary">Checkout</span> <!-- temp usage -->
+                <button type="submit" id="checkoutBtn" class="btn btn-primary">Checkout</button> <!-- temp usage -->
             </form>
         </div>
     </div>

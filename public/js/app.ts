@@ -2,6 +2,14 @@
 import { CartItem } from "../../models/CartItem.ts";
 
 if (document.title == "Webshop Cart") {
+
+    let togglerAmount:HTMLElement = document.getElementById("lblCartCount");
+        fetch("/api/getCartTotal").then(function(response) {
+            return response.text().then(function(text) {
+                togglerAmount.innerHTML = text;
+            });
+          });
+      
     $('.incrementor').on('click', function (e) {
         e.preventDefault();
         var $this = $(this);
@@ -43,6 +51,12 @@ if (document.title == "Webshop Cart") {
             mode: 'no-cors',
             body: JSON.stringify(cartItem)
         });
+        let togglerAmount:HTMLElement = document.getElementById("lblCartCount");
+        fetch("/api/getCartTotal").then(function(response) {
+            return response.text().then(function(text) {
+                togglerAmount.innerHTML = text;
+            });
+          });
     }
 
 }
@@ -151,29 +165,38 @@ if (document.title == "Webshop Checkout") {
     let checkoutBtn = document.getElementById("checkoutBtn");
     checkoutBtn.addEventListener("click", function () {
         checkout();
-        var snack: HTMLElement = document.getElementById("snackbar");
-        snack.className = "show";
-        setTimeout(function () {
-            snack.className = snack.className.replace("show", "");
-        }, 2000);
-    });
+});
 
     async function checkout() {
-        var cart = await fetch("http://localhost:8000/api/cart", {
-                method: 'GET',
-                redirect: 'follow'
-            })
-            .then(response => response.text())
-            .catch(error => console.log('error', error));
+        let name = document.getElementById("name");
+        let street = document.getElementById("street");
+        let city = document.getElementById("city");
+        let zip = document.getElementById("zip");
+
+        if (name.value == "" || street.value == "" || city.value == "" || zip.value == "") {
+            alert("Please fill out the form");
+            return
+        } else {
+            var cart = await fetch("http://localhost:8000/api/cart", {
+                    method: 'GET',
+                    redirect: 'follow'
+                })
+                .then(response => response.text())
+                .catch(error => console.log('error', error));
             const stringifiedCart = JSON.stringify(cart);
-            
             fetch("/api/checkout", {
-            method: 'POST',
-            mode: 'no-cors',
-            body: stringifiedCart
-        });
+                method: 'POST',
+                mode: 'no-cors',
+                body: stringifiedCart
+            });
+            var snack: HTMLElement = document.getElementById("snackbar");
+            snack.className = "show";
+            setTimeout(function () {
+                snack.className = snack.className.replace("show", "");
+            }, 2000);
+        }
     }
-}
+    }
 
 function addToCart(artId) {
     const amount = parseInt(document.getElementById("article-counter-" + artId).value);
@@ -183,10 +206,10 @@ function addToCart(artId) {
         mode: 'no-cors',
         body: JSON.stringify(cartItem)
     });
+    let togglerAmount:HTMLElement = document.getElementById("lblCartCount");    
+    fetch("/api/getCartTotal").then(function(response) {
+        return response.text().then(function(text) {
+            togglerAmount.innerHTML = text;
+        });
+      });
 }
-
-// async function getCartTotal(){
-//     await fetch("/api/getCartTotal").then(function(response){
-//         return response.text()
-//     })
-// }
