@@ -2,12 +2,11 @@ import { RouterContext, isJSON} from "../deps.ts";
 import helpers from "../helpers.ts"
 
 
+
 export class CheckoutController {
     async Checkout(ctx: RouterContext) {
         const {value} = ctx.request.body({type: "json"});
         const obj = await value;
-        console.log(obj);
-        
         await Deno.writeTextFile(`./checkouts/order-${Date.now()}.json`, obj);
         ctx.response.body = "Checkout was Recieved";
         ctx.response.status = 200;

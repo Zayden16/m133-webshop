@@ -17,7 +17,7 @@ class Helpers {
         return roundedValue;
     }
     
-    validate(json: JSON){
+    validate(json: string){
         if(isJSON(json)){
             return true;
         } else{
