@@ -4,10 +4,7 @@ import {
 } from "../../models/CartItem.ts";
 
 if (document.title == "Webshop Cart") {
-    cartItemArray = document.getElementsByClassName("cart-item");
-    cartItemArray.forEach(item => {
-        decodeURIComponent.createElement("BUTTON");
-    });
+    
 }
 
 if (document.title == "Webshop Home") {

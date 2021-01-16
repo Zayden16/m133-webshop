@@ -40,9 +40,9 @@
                                 <h3 class="cart-item-amount"><%= matrixItem.Amount %></h3>
                             </div>
                             <div class="article-input-group mb-3">
-                                <span id="decrementor-<%=matrixItem.ArticleId%>" class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub decrementor"> <i
+                                <button value="<%=matrixItem.ArticleId%>" class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub decrementor"> <i
                                         class="fas fa-minus"></i>
-                                </span>
+                                </button>
                                 <input id="article-counter-<%=matrixItem.ArticleId%>" class="article-counter" type="number" min="1" value="1" />
                                 <span class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub incrementor"
                                     id="incrementor-<%= matrixItem.ArticleId %>"> <i class="fas fa-plus"></i>

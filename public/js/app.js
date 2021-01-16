@@ -1,12 +1,41 @@
 class CartItem {
-    constructor(artId, amount){
-        this.ArticleId = artId;
+    constructor(artId1, amount){
+        this.ArticleId = artId1;
         this.Amount = amount;
     }
 }
 if (document.title == "Webshop Cart") {
-    cartItemArray = document.getElementsByClassName("cart-item");
-    console.log(cartItemArray);
+    $('.decrementor').on('click', function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        var $input = $this.closest('div').find('input');
+        var value = parseInt($input.val());
+        if (value > 1) {
+            value = value - 1;
+        } else {
+            value = 0;
+            artId = $this.closest('div').find('.decrementor').value;
+            fetch("/api/cart/addItem", {
+                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify(cartItem)
+            });
+            window.location.reload();
+        }
+        $input.val(value);
+    });
+    $('.incrementor').on('click', function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        var $input = $this.closest('div').find('input');
+        var value = parseInt($input.val());
+        if (value < 100) {
+            value = value + 1;
+        } else {
+            value = 100;
+        }
+        $input.val(value);
+    });
 }
 if (document.title == "Webshop Home") {
     let toggler = document.getElementById("cart-toggler");
@@ -29,14 +58,14 @@ if (document.title == "Webshop Article") {
             minicart.style.display = "none";
         }
     });
-    const artId1 = document.getElementById("addToCart").value;
+    const artId2 = document.getElementById("addToCart").value;
     let addToCartBtn = document.getElementById("addToCart");
     addToCartBtn.addEventListener("click", function() {
-        addToCart(artId1);
+        addToCart(artId2);
     });
-    function addToCart(artId2) {
-        const amount1 = parseInt(document.getElementById("article-counter-" + artId2).value);
-        const cartItem = new CartItem(artId2, amount1);
+    function addToCart(artId3) {
+        const amount1 = parseInt(document.getElementById("article-counter-" + artId3).value);
+        const cartItem = new CartItem(artId3, amount1);
         fetch("/api/cart/addItem", {
             method: 'POST',
             mode: 'no-cors',
