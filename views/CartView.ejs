@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/stylesheets/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/762c79917a.js" crossorigin="anonymous"></script>
-    <title>Cart</title>
+    <title>Webshop Cart</title>
 </head>
 
 <body>
@@ -23,32 +23,8 @@
             <li><a href="/#banner1">Home</a></li>
             <li><a href="/#xphone">XPhone Orp</a></li>
             <li><a href="/#shop">Shop</a></li>
-            <li><button id="cart-toggler" class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub">
-                    <i class="fas fa-shopping-cart"></i>
-                </button></li>
         </ul>
     </nav>
-    <!-- MiniCart -->
-    <div id="minicart">
-        <ul>
-            <h1 class="text-center">Shopping Cart</h1>
-            <% if (dataContext.cartMatrix) { %>
-            <% for (let matrixItem of dataContext.cartMatrix){ %>
-            <li>
-                <h3><%= matrixItem.ArticleId %></h3>
-                <h3><%= matrixItem.Amount %> </h3>
-            </li>
-            <% } %>
-            <% } if (dataContext.cartMatrix === undefined || dataContext.cartMatrix.length == 0) {%>
-            <h1>Your Shopping Cart is empty!</h1>
-            <% } %>
-            <div class="input-group">
-                <div class="input-group-append">
-                    <a class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub" href="/cart">View Cart</a>
-                </div>
-            </div>
-        </ul>
-    </div>
     <!-- Shopping Cart -->
     <div class="bg-light">
         <h1 class="text-center">Shopping cart</h1>

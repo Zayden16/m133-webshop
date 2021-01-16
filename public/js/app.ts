@@ -3,7 +3,38 @@ import {
     CartItem
 } from "../../models/CartItem.ts";
 
-if (document.title != "Cart") {
+if (document.title == "Webshop Cart") {
+    cartItemArray = document.getElementsByClassName("cart-item");
+    cartItemArray.forEach(item => {
+        decodeURIComponent.createElement("BUTTON");
+    });
+}
+
+if (document.title == "Webshop Home") {
+    let toggler = document.getElementById("cart-toggler");
+    let minicart = document.getElementById("minicart");
+
+    toggler.addEventListener("click", function () {
+        if (minicart.style.display == "none" || minicart.style.display == "") {
+            minicart.style.display = "flex";
+        } else {
+            minicart.style.display = "none";
+        }
+    });
+}
+
+if (document.title == "Webshop Article") {
+    let toggler = document.getElementById("cart-toggler");
+    let minicart = document.getElementById("minicart");
+
+    toggler.addEventListener("click", function () {
+        if (minicart.style.display == "none" || minicart.style.display == "") {
+            minicart.style.display = "flex";
+        } else {
+            minicart.style.display = "none";
+        }
+    });
+
     const artId = document.getElementById("addToCart").value;
     let addToCartBtn = document.getElementById("addToCart");
     addToCartBtn.addEventListener("click", function () {
@@ -20,48 +51,31 @@ if (document.title != "Cart") {
         });
         window.location.reload()
     }
+
+    $('.decrementor').on('click', function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        var $input = $this.closest('div').find('input');
+        var value = parseInt($input.val());
+        if (value > 1) {
+            value = value - 1;
+        } else {
+            value = 0;
+        }
+        $input.val(value);
+    });
+
+    $('.incrementor').on('click', function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        var $input = $this.closest('div').find('input');
+        var value = parseInt($input.val());
+        if (value < 100) {
+            value = value + 1;
+        } else {
+            value = 100;
+        }
+        $input.val(value);
+    });
+
 }
-
-let toggler = document.getElementById("cart-toggler");
-let minicart = document.getElementById("minicart");
-
-toggler.addEventListener("click", function () {
-    if (minicart.style.display == "none" || minicart.style.display == "") {
-        minicart.style.display = "flex";
-    } else {
-        minicart.style.display = "none";
-    }
-});
-
-
-// function incrementArticleCounter() {
-//     let counter = document.getElementById("article-counter-" + artId);
-//     let newVal = counter.value++;
-//     return newVal;
-// }
-
-$('.decrementor').on('click', function (e) {
-    e.preventDefault();
-    var $this = $(this);
-    var $input = $this.closest('div').find('input');
-    var value = parseInt($input.val());
-    if (value > 1) {
-        value = value - 1;
-    } else {
-        value = 0;
-    }
-    $input.val(value);
-});
-
-$('.incrementor').on('click', function (e) {
-    e.preventDefault();
-    var $this = $(this);
-    var $input = $this.closest('div').find('input');
-    var value = parseInt($input.val());
-    if (value < 100) {
-        value = value + 1;
-    } else {
-        value = 100;
-    }
-    $input.val(value);
-});
