@@ -1,10 +1,14 @@
-import { Article, Router, RouterContext } from "../deps.ts"
+import {
+    Article,
+    Router,
+    RouterContext
+} from "../deps.ts"
 import data from "../data/data.ts"
 
-class ArticleController{
-    async getAllArticles(ctx: RouterContext){
+class ArticleController {
+    async getAllArticles(ctx: RouterContext) {
         const articles = await data.getAllArticles();
-        if (articles){
+        if (articles) {
             ctx.response.body = articles;
             ctx.response.status = 200;
         }
@@ -14,21 +18,24 @@ class ArticleController{
         }
     }
 
-    async article(ctx: RouterContext){
+    async article(ctx: RouterContext) {
         const id: string = await ctx.params.id!;
         const article = data.getArticle(id);
-        if (article){
+        if (article) {
             ctx.response.status = 200;
             ctx.response.body = article;
-        }
-        else{
+        } else {
             ctx.response.status = 200;
             ctx.response.body = "Article not found";
         }
     }
 
-    async createArticle(ctx: RouterContext){
-        const { value } = ctx.request.body({type: "json"});
+    async createArticle(ctx: RouterContext) {
+        const {
+            value
+        } = ctx.request.body({
+            type: "json"
+        });
         const obj = await value;
         const art = new Article(obj.ArticleTitle, obj.ArticleDescription, obj.ArticlePrice);
         data.createArticle(art);
@@ -36,7 +43,7 @@ class ArticleController{
         ctx.response.status = 200;
     }
 
-    async deleteArticle(ctx: RouterContext){
+    async deleteArticle(ctx: RouterContext) {
         try {
             const id: string = await ctx.params.id!;
             data.deleteArticle(id);
@@ -44,13 +51,12 @@ class ArticleController{
             ctx.response.body = {
                 success: true,
                 message: `Article with ID ${id} was deleted`,
-                };
-        }
-        catch (error) {
+            };
+        } catch (error) {
             ctx.response.status = 400;
             ctx.response.body = {
-            success: false,
-            message: `Error: ${error}`,
+                success: false,
+                message: `Error: ${error}`,
             };
         }
     }

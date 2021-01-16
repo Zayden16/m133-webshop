@@ -1,23 +1,32 @@
-import { RouterContext, renderFileToString, Router, Article} from "../deps.ts";
-import { CartItem } from "../models/CartItem.ts";
-import { Cart } from "../models/Cart.ts";
+import {
+    RouterContext,
+    renderFileToString,
+    Router,
+    Article
+} from "../deps.ts";
+import {
+    CartItem
+} from "../models/CartItem.ts";
+import {
+    Cart
+} from "../models/Cart.ts";
 import helpers from "../helpers.ts"
-import data  from "../data/data.ts"
+import data from "../data/data.ts"
 
 
 
-export class CartController{
-    async getCart(ctx: RouterContext){
+export class CartController {
+    async getCart(ctx: RouterContext) {
         const cart = await helpers.getSessionCart(ctx);
         ctx.response.body = JSON.stringify(cart);
         ctx.response.status = 200;
     }
 
-    async getCartTotal(ctx: RouterContext){
+    async getCartTotal(ctx: RouterContext) {
         const cart = await helpers.getSessionCart(ctx);
         const articles = data.getAllArticles();
-    
-        var total:number = 0;
+
+        var total: number = 0;
         // deno-lint-ignore no-explicit-any
         const cartMatrix: any = []
         let matrixItem;
@@ -41,12 +50,16 @@ export class CartController{
             ctx.response.body = "Cart is empty!";
             ctx.response.status = 404;
         }
-        
+
     }
 
-    async addToCart(ctx: RouterContext){
+    async addToCart(ctx: RouterContext) {
         let cart = await helpers.getSessionCart(ctx);
-        const { value } = ctx.request.body({type: "json"});
+        const {
+            value
+        } = ctx.request.body({
+            type: "json"
+        });
         const tempItem = await value;
         const newItem = new CartItem(tempItem.ArticleId, tempItem.Amount);
         const helperCart = new Cart(); //Deep Clone
@@ -56,18 +69,17 @@ export class CartController{
                 if (element.ArticleId == newItem.ArticleId) {
                     if (newItem.Amount == 0) {
                         cart.removeItem(element);
-                    } else {   
-                    const amount: number = element.Amount + newItem.Amount;
-                    element.Amount = amount;
-                    cart.removeItem(element);
-                    cart.addItem(newItem);
+                    } else {
+                        const amount: number = element.Amount + newItem.Amount;
+                        element.Amount = amount;
+                        cart.removeItem(element);
+                        cart.addItem(newItem);
                     }
-                }
-                else{
+                } else {
                     cart.addItem(newItem);
                 }
             });
-        } else{
+        } else {
             cart.addItem(newItem);
         }
         console.log(cart);

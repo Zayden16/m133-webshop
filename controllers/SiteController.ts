@@ -1,9 +1,15 @@
-import { RouterContext, renderFileToString, Article} from "../deps.ts";
-import data  from "../data/data.ts"
+import {
+    RouterContext,
+    renderFileToString,
+    Article
+} from "../deps.ts";
+import data from "../data/data.ts"
 import helpers from "../helpers.ts"
-import { CartItem } from "../models/CartItem.ts";
+import {
+    CartItem
+} from "../models/CartItem.ts";
 
-export class SiteController{
+export class SiteController {
     async Index(ctx: RouterContext) {
         const articles = data.getAllArticles();
         const cart = await helpers.getSessionCart(ctx);
@@ -12,8 +18,9 @@ export class SiteController{
             cart: cart
         };
         ctx.response.body = await renderFileToString(
-            `${Deno.cwd()}/views/IndexView.ejs`,
-            {dataContext : dataContext}
+            `${Deno.cwd()}/views/IndexView.ejs`, {
+                dataContext: dataContext
+            }
         );
     }
     async ArticleDetail(ctx: RouterContext) {
@@ -22,17 +29,18 @@ export class SiteController{
         const articles = data.getAllArticles();
         const cart = await helpers.getSessionCart(ctx);
         const dataContext = {
-            article : article,
+            article: article,
             articles: articles,
             cart: cart
         };
         ctx.response.body = await renderFileToString(
-            `${Deno.cwd()}/views/ArticleDetailView.ejs`,
-            {dataContext: dataContext}
+            `${Deno.cwd()}/views/ArticleDetailView.ejs`, {
+                dataContext: dataContext
+            }
         );
     }
 
-    async Cart(ctx: RouterContext){
+    async Cart(ctx: RouterContext) {
         const cart = await helpers.getSessionCart(ctx);
         const articles = data.getAllArticles();
         // deno-lint-ignore no-explicit-any
@@ -44,28 +52,30 @@ export class SiteController{
                 if (art.ArticleId == cartItem.ArticleId) {
                     matrixItem = Object.assign(art, cartItem);
                     cartMatrix.push(matrixItem);
-                 }
+                }
             });
         });
-        
+
         const dataContext = {
             cartMatrix
         };
 
         ctx.response.body = await renderFileToString(
-            `${Deno.cwd()}/views/CartView.ejs`,
-            {dataContext: dataContext}
+            `${Deno.cwd()}/views/CartView.ejs`, {
+                dataContext: dataContext
+            }
         );
     }
 
-    async Checkout(ctx: RouterContext){
+    async Checkout(ctx: RouterContext) {
         const cart = await helpers.getSessionCart(ctx);
         const dataContext = {
             cart: cart
-        };  
+        };
         ctx.response.body = await renderFileToString(
-            `${Deno.cwd()}/views/CheckoutView.ejs`,
-            {dataContext: dataContext}
+            `${Deno.cwd()}/views/CheckoutView.ejs`, {
+                dataContext: dataContext
+            }
         );
     }
 }

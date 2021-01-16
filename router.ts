@@ -1,4 +1,6 @@
-import { Router } from "https://deno.land/x/oak/mod.ts";
+import {
+    Router
+} from "https://deno.land/x/oak/mod.ts";
 import articleController from "./controllers/ArticleController.ts";
 import cartController from "./controllers/CartController.ts";
 import siteController from "./controllers/SiteController.ts";

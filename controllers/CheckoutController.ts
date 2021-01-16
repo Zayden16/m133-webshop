@@ -1,11 +1,18 @@
-import { RouterContext, isJSON} from "../deps.ts";
+import {
+    RouterContext,
+    isJSON
+} from "../deps.ts";
 import helpers from "../helpers.ts"
 
 
 
 export class CheckoutController {
     async Checkout(ctx: RouterContext) {
-        const {value} = ctx.request.body({type: "json"});
+        const {
+            value
+        } = ctx.request.body({
+            type: "json"
+        });
         const obj = await value;
         JSON.stringify(obj);
         helpers.validate(obj);
