@@ -1,0 +1,21 @@
+{
+    // Works with Pop!_OS 20.10 !!!!!!!!! I have no idea why or how this works but it works
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Deno",
+            "request": "launch",
+            "type": "pwa-node",
+            "program": "mod.ts",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "deno",
+            "outputCapture": "std",
+            "runtimeArgs": [
+                "run",
+                "--inspect-brk",
+                "--allow-all"
+            ],
+            "attachSimplePort": 9229
+        }
+    ]
+}

@@ -25,13 +25,14 @@
             <li><a href="/#shop">Shop</a></li>
             <li><button id="cart-toggler"class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub">
                 <i class="fas fa-shopping-cart"></i>
+                <span class='badge badge-warning' id='lblCartCount'>CHF <%=dataContext.cart.length%></span>
             </button></li>
         </ul>
     </nav>
     <!-- MiniCart -->
     <div id="minicart">
         <ul>
-            <h1 class="text-center">Shopping Cart</h1>
+            <h1 class="text-center">Shopping Cart</h1>  
             <% if (dataContext.cart.CartItems) { %>
                 <% for (let cartItem of dataContext.cart.CartItems){ %>
                 <li>

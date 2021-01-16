@@ -12,6 +12,10 @@ class Helpers {
             return await ctx.state.session.get("cart");
         }
     }
+    swissCommercialRounding(value: number) {
+        let roundedValue = (Math.ceil(value * 20 - 0.5) / 20).toFixed(2);
+        return roundedValue;
+    }
 }
 
 const helpers = new Helpers();
