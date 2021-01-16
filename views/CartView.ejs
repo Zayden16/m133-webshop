@@ -37,7 +37,9 @@
                         <img class="cart-item-thumb" src="data:image/png;base64, <%= matrixItem.ArticlePicture %>">
                         <h3 class="cart-item-title"><%= matrixItem.ArticleTitle %></h3>
                         <h6 class="cart-item-Id"><%= matrixItem.ArticleId %></h6>
-                        <h3 class="cart-item-amount"><%= matrixItem.Amount %></h3>
+                    </div>
+                    <div class="price">
+                        <p>CHF<%= matrixItem.ArticlePrice %></p>
                     </div>
                     <div class="article-input-group mb-3">
                         <button value="<%=matrixItem.ArticleId%>"
@@ -50,18 +52,21 @@
                             onclick="addToCart('<%=matrixItem.ArticleId%>')"
                             id="incrementor-<%= matrixItem.ArticleId %>"> <i class="fas fa-plus"></i>
                         </button>
-                        </a>
                     </div>
                 </div>
                 <% } %>
+                <% if (!dataContext.cartMatrix === undefined || !dataContext.cartMatrix.length == 0) {%>
+                <div class="checkout">
+                    <button class="btn btn btn-primary btn-lg text-white font-16 border-0 btn-sub">
+                        <a href="/checkout">Checkout</a>
+                    </button>
+                </div>
+                <% } %> 
                 <% } if (dataContext.cartMatrix === undefined || dataContext.cartMatrix.length == 0) {%>
                 <h1>Your Shopping Cart is empty!</h1>
                 <% } %>
             </div>
         </div>
-    </div>
-
-    </h1>
     </div>
     <!-- Shopping Cart End -->
     <!-- About Us Start -->

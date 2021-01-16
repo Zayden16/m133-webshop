@@ -64,6 +64,27 @@ nav ul li a{
 
 /* --------------------------------------------------- Components ----------------------------------------------------------- */
 
+#snackbar {
+  visibility: hidden; 
+  min-width: 250px; 
+  margin-left: -125px; 
+  background-color: rgb(8, 143, 69); 
+  color: #fff; 
+  text-align: center; 
+  border-radius: 2px; 
+  padding: 16px; 
+  position: fixed; 
+  z-index: 1; 
+  left: 50%; 
+  bottom: 30px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein-snackbar 0.5s, fadeout-snackbar 0.5s 1.5s;
+  animation: fadein-snackbar 0.5s, fadeout-snackbar 0.5s 1.5s;
+}
+
 h6{
   font-size: 8pt;
 }
@@ -231,7 +252,6 @@ h6{
 .cart-item{
   display: flex;
   flex-direction: column;
-  border:solid 1px red;
   padding: 1em;
 }
 
@@ -240,6 +260,14 @@ h6{
   width: 100px;
 }
 
+.checkout{
+  display: flex;
+}
+
+.checkout button a {
+  text-decoration: none;
+  color:white;
+}
 /* --------------------------------------------------- Animations ----------------------------------------------------------- */
 
 .fadein {
@@ -258,6 +286,25 @@ h6{
   100% {
     opacity: 1;
   }
+}
+@-webkit-keyframes fadein-snackbar {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein-snackbar {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout-snackabar {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout-snackbar {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
 }
 
 @keyframes blurIn {
