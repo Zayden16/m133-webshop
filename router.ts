@@ -21,6 +21,7 @@ router.delete("/api/deletearticle/:id", articleController.deleteArticle);
 // Router Def for Cart
 router.post("/api/cart/addItem", cartController.addToCart);
 router.get("/api/cart", cartController.getCart);
+router.get("/api/getCartTotal", cartController.getCartTotal);
 
 // Router Def for Checkout
 router.post("/api/checkout", checkoutController.Checkout);

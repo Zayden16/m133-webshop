@@ -58,6 +58,14 @@ if (document.title == "Webshop Home") {
             minicart.style.display = "none";
         }
     });
+    
+    let togglerAmount:HTMLElement = document.getElementById("lblCartCount");    
+    fetch("/api/getCartTotal").then(function(response) {
+        return response.text().then(function(text) {
+            togglerAmount.innerHTML = text;
+        });
+      });
+
 }
 
 if (document.title == "Webshop Article") {
@@ -71,6 +79,13 @@ if (document.title == "Webshop Article") {
             minicart.style.display = "none";
         }
     });
+
+    let togglerAmount:HTMLElement = document.getElementById("lblCartCount");    
+    fetch("/api/getCartTotal").then(function(response) {
+        return response.text().then(function(text) {
+            togglerAmount.innerHTML = text;
+        });
+      });
 
     const artId = document.getElementById("addToCart").value;
     let addToCartBtn = document.getElementById("addToCart");
@@ -115,6 +130,24 @@ if (document.title == "Webshop Article") {
 }
 
 if (document.title == "Webshop Checkout") {
+    let toggler = document.getElementById("cart-toggler");
+    let minicart = document.getElementById("minicart");
+
+    toggler.addEventListener("click", function () {
+        if (minicart.style.display == "none" || minicart.style.display == "") {
+            minicart.style.display = "flex";
+        } else {
+            minicart.style.display = "none";
+        }
+    });
+
+    let togglerAmount:HTMLElement = document.getElementById("lblCartCount");    
+    fetch("/api/getCartTotal").then(function(response) {
+        return response.text().then(function(text) {
+            togglerAmount.innerHTML = text;
+        });
+      });
+
     let checkoutBtn = document.getElementById("checkoutBtn");
     checkoutBtn.addEventListener("click", function () {
         checkout();
@@ -126,18 +159,18 @@ if (document.title == "Webshop Checkout") {
     });
 
     async function checkout() {
-        var cart = fetch("http://localhost:8000/api/cart", {
+        var cart = await fetch("http://localhost:8000/api/cart", {
                 method: 'GET',
                 redirect: 'follow'
             })
             .then(response => response.text())
-            .then(result => console.log(result))
             .catch(error => console.log('error', error));
-
-        fetch("/api/checkout", {
+            const stringifiedCart = JSON.stringify(cart);
+            
+            fetch("/api/checkout", {
             method: 'POST',
             mode: 'no-cors',
-            body: `${JSON.stringify(cart)}`
+            body: stringifiedCart
         });
     }
 }
@@ -151,3 +184,9 @@ function addToCart(artId) {
         body: JSON.stringify(cartItem)
     });
 }
+
+// async function getCartTotal(){
+//     await fetch("/api/getCartTotal").then(function(response){
+//         return response.text()
+//     })
+// }

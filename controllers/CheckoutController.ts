@@ -7,6 +7,8 @@ export class CheckoutController {
     async Checkout(ctx: RouterContext) {
         const {value} = ctx.request.body({type: "json"});
         const obj = await value;
+        JSON.stringify(obj);
+        helpers.validate(obj);
         await Deno.writeTextFile(`./checkouts/order-${Date.now()}.json`, obj);
         ctx.response.body = "Checkout was Recieved";
         ctx.response.status = 200;
